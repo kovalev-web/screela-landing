@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme {
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(0.985 0 0);
+  --color-card: oklch(0.205 0 0);
+  --color-card-foreground: oklch(0.985 0 0);
+  --color-popover: oklch(0.205 0 0);
+  --color-popover-foreground: oklch(0.985 0 0);
+  --color-primary: oklch(0.922 0 0);
+  --color-primary-foreground: oklch(0.205 0 0);
+  --color-secondary: oklch(0.269 0 0);
+  --color-secondary-foreground: oklch(0.985 0 0);
+  --color-muted: oklch(0.269 0 0);
+  --color-muted-foreground: oklch(0.556 0 0);
+  --color-accent: oklch(0.269 0 0);
+  --color-accent-foreground: oklch(0.985 0 0);
+  --color-destructive: oklch(0.704 0.191 22.216);
+  --color-border: oklch(1 0 0 / 10%);
+  --color-input: oklch(1 0 0 / 15%);
+  --color-ring: oklch(0.556 0 0);
+  --color-chart-1: oklch(0.87 0 0);
+  --color-chart-2: oklch(0.556 0 0);
+  --color-chart-3: oklch(0.439 0 0);
+  --color-chart-4: oklch(0.371 0 0);
+  --color-chart-5: oklch(0.269 0 0);
+  --color-sidebar: oklch(0.205 0 0);
+  --color-sidebar-foreground: oklch(0.985 0 0);
+  --color-sidebar-primary: oklch(0.488 0.243 264.376);
+  --color-sidebar-primary-foreground: oklch(0.985 0 0);
+  --color-sidebar-accent: oklch(0.269 0 0);
+  --color-sidebar-accent-foreground: oklch(0.985 0 0);
+  --color-sidebar-border: oklch(1 0 0 / 10%);
+  --color-sidebar-ring: oklch(0.556 0 0);
+  --radius: 0.625rem;
+}
+
+* {
+  @apply border-border outline-ring/50;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  background-image: radial-gradient(ellipse at top, oklch(0.3 0.1 260 / 0.15), transparent 70%);
+  background-attachment: fixed;
+}
+
+.text-gradient {
+  background: linear-gradient(to bottom, oklch(0.985 0 0), oklch(0.6 0 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-card {
+  box-shadow:
+    0 0 0 1px oklch(1 0 0 / 5%),
+    0 8px 32px -12px oklch(0 0 0 / 0.6);
+  transition: box-shadow 0.3s;
+}
+
+.glow-card:hover {
+  box-shadow:
+     0 0 0 1px oklch(1 0 0 / 10%),
+     0 8px 40px -8px oklch(0.6 0 0 / 0.15);
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(120px, -60px); }
+  50% { transform: translate(-80px, 80px); }
+  75% { transform: translate(60px, -40px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-float-slow {
+  animation: float 20s ease-in-out infinite, pulse-soft 4s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float 25s ease-in-out infinite alternate, pulse-soft 5s ease-in-out infinite;
+}
+
+@keyframes mirror-chaos {
+  0% { transform: scaleX(1); }
+  15% { transform: scaleX(-1); }
+  30% { transform: scaleX(1); }
+  45% { transform: scaleX(-1); }
+  60% { transform: scaleX(1); }
+  75% { transform: scaleX(-1); }
+  90% { transform: scaleX(1); }
+  100% { transform: scaleX(-1); }
+}
+
+.animate-mirror {
+  animation: mirror-chaos 3s steps(1) infinite;
+}
