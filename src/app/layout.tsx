@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -39,7 +40,14 @@ export default function RootLayout({
       lang="en"
       className={`${figtree.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Script
+          src="https://analytics.screela.com/script.js"
+          data-website-id="a848bf87-2e18-44aa-a18f-7d64ccdd5d94"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
