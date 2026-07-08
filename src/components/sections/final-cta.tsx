@@ -4,6 +4,7 @@ import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Check, Loader2 } from "lucide-react"
+import { Reveal } from "@/components/reveal"
 
 export function FinalCTA() {
   const [email, setEmail] = React.useState("")
@@ -25,42 +26,44 @@ export function FinalCTA() {
       </div>
 
       <div className="mx-auto max-w-2xl relative">
-        <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
-          Your next audit could take an hour, not&nbsp;a&nbsp;day
-        </h2>
+        <Reveal>
+          <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+            Your next audit could take an hour, not&nbsp;a&nbsp;day
+          </h2>
 
-        {status === "success" ? (
-          <div className="mt-8 flex items-center justify-center gap-2 text-emerald-400">
-            <Check className="size-5" />
-            <span className="text-sm font-medium">You&rsquo;re on the list. We&rsquo;ll be in touch.</span>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="mt-8 flex justify-center">
-            <div className="flex w-full max-w-md flex-row gap-3">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                disabled={status === "loading"}
-                className="h-10 min-w-0 flex-1 bg-white/5 border-white/10 focus:border-slate-400/40 focus:ring-slate-400/20 disabled:opacity-50"
-              />
-              <Button
-                type="submit"
-                size="lg"
-                className="h-10 shrink-0"
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? (
-                  <Loader2 className="size-4 animate-spin" />
-                ) : (
-                  "Get early access"
-                )}
-              </Button>
+          {status === "success" ? (
+            <div className="mt-8 flex items-center justify-center gap-2 text-emerald-400">
+              <Check className="size-5" />
+              <span className="text-sm font-medium">You&rsquo;re on the list. We&rsquo;ll be in touch.</span>
             </div>
-          </form>
-        )}
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-8 flex justify-center">
+              <div className="flex w-full max-w-md flex-row gap-3">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={status === "loading"}
+                  className="h-10 min-w-0 flex-1 bg-white/5 border-white/10 focus:border-slate-400/40 focus:ring-slate-400/20 disabled:opacity-50"
+                />
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="h-10 shrink-0"
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? (
+                    <Loader2 className="size-4 animate-spin" />
+                  ) : (
+                    "Get early access"
+                  )}
+                </Button>
+              </div>
+            </form>
+          )}
+        </Reveal>
       </div>
     </section>
   )

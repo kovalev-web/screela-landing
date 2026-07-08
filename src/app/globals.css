@@ -34,6 +34,7 @@
   --color-sidebar-accent-foreground: oklch(0.985 0 0);
   --color-sidebar-border: oklch(1 0 0 / 10%);
   --color-sidebar-ring: oklch(0.556 0 0);
+  --color-accent-2: oklch(0.65 0.19 264);
   --radius: 0.625rem;
 }
 
@@ -70,6 +71,25 @@ body {
   box-shadow:
      0 0 0 1px oklch(1 0 0 / 10%),
      0 8px 40px -8px oklch(0.6 0 0 / 0.15);
+}
+
+.accent-card {
+  border-color: oklch(0.65 0.19 264 / 30%) !important;
+  box-shadow:
+    0 0 0 1px oklch(0.65 0.19 264 / 20%),
+    0 8px 40px -8px oklch(0.65 0.19 264 / 0.35);
+}
+
+.accent-card:hover {
+  box-shadow:
+    0 0 0 1px oklch(0.65 0.19 264 / 35%),
+    0 8px 48px -8px oklch(0.65 0.19 264 / 0.5);
+}
+
+.accent-badge {
+  background-color: oklch(0.65 0.19 264 / 15%);
+  color: oklch(0.78 0.14 264);
+  box-shadow: 0 0 0 1px oklch(0.65 0.19 264 / 25%);
 }
 
 @keyframes float {

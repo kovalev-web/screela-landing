@@ -7,6 +7,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { Reveal } from "@/components/reveal"
 
 const faqs = [
   {
@@ -62,9 +63,11 @@ export function FAQ() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
-          Questions
-        </h2>
+        <Reveal>
+          <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+            Questions
+          </h2>
+        </Reveal>
 
         <div className="mx-auto max-w-2xl mt-8 sm:mt-14">
           {faqs.map((faq) => {
