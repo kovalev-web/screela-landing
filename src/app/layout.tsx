@@ -9,7 +9,10 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://screela.com"),
   title: "Screela — Capture competitor user flows as full-page screenshots on one board",
+  // When you register the site in Google Search Console via the HTML tag method,
+  // paste the verification code here: verification: { google: "your-code-here" },
   icons: {
     icon: { url: "/favicon.svg", type: "image/svg+xml" },
   },

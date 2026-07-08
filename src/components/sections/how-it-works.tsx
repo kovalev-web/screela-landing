@@ -7,24 +7,24 @@ const steps = [
   {
     number: "2",
     title: "Walk the product",
-    text: "Press Cmd+Shift+S on each step. Screela captures the full page — sticky headers deduplicated, modals handled, animations settled.",
+    text: "Press Cmd+Shift+S on each step. Screela captures the full page, handling sticky headers and waiting out animations on its own.",
   },
   {
     number: "3",
     title: "Get a finished flow",
-    text: "Steps appear on your board in order, connected, numbered, with URL and time on every card. Nothing to sort, nothing to rename.",
+    text: "Steps land on your board already in order and numbered, with the URL and time stamped on each card, so there's nothing left to sort or rename.",
   },
 ]
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="relative px-4 py-10 sm:px-6 sm:py-16 scroll-mt-10">
+    <section id="how-it-works" className="section-y relative scroll-mt-10">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
           Three steps, one shortcut
         </h2>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 sm:mt-14 grid gap-6 md:grid-cols-3">
           {steps.map((step) => (
             <div
               key={step.number}

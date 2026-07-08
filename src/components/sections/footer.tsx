@@ -6,6 +6,9 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-zinc-500 sm:flex-row">
         <span>&copy; {new Date().getFullYear()} Screela</span>
         <nav className="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <a href="#demo" className="hover:text-zinc-300 transition-colors">
+            Live board
+          </a>
           <Link href="/privacy" className="hover:text-zinc-300 transition-colors">
             Privacy
           </Link>

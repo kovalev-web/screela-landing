@@ -11,7 +11,7 @@ import {
 const faqs = [
   {
     q: "Is the extension safe?",
-    a: "Screela uses the minimal activeTab permission — it can only see the tab you're on, and only when you press the shortcut. It never reads your browsing history. The extension code is open source.",
+    a: "Screela uses the minimal activeTab permission, so it can only see the tab you're on, and only when you press the shortcut. It never reads your browsing history. The extension code is open source.",
   },
   {
     q: "Do I need to install anything besides the extension?",
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "Can I try it without installing?",
-    a: 'Yes — explore a <a href="#demo" class="underline underline-offset-3 hover:text-foreground">live demo board</a>.',
+    a: 'Yes, explore a <a href="#demo" class="underline underline-offset-3 hover:text-foreground">live demo board</a>.',
   },
   {
     q: "What does it cost?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Does it work behind logins?",
-    a: "Yes — you browse, Screela captures. If you can see it, you can record it.",
+    a: "Yes. You browse, Screela captures. If you can see it, you can record it.",
   },
 ]
 
@@ -56,17 +56,17 @@ export function FAQ() {
   }
 
   return (
-    <section id="faq" className="relative px-4 py-10 sm:px-6 sm:py-16 scroll-mt-10">
+    <section id="faq" className="section-y relative scroll-mt-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
           Questions
         </h2>
 
-        <div className="mx-auto max-w-2xl mt-14">
+        <div className="mx-auto max-w-2xl mt-8 sm:mt-14">
           {faqs.map((faq) => {
             const isOpen = openItems.includes(faq.q)
             return (

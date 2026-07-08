@@ -19,13 +19,13 @@ export function FinalCTA() {
   }
 
   return (
-    <section className="relative overflow-hidden border-t border-white/5 px-4 py-10 text-center sm:px-6 sm:py-16">
+    <section className="section-y relative overflow-hidden border-t border-white/5">
       <div className="absolute top-[-30%] left-0 right-0 flex justify-center">
         <div className="size-[700px] rounded-full bg-slate-400/20 blur-[80px] animate-float-slow" />
       </div>
 
       <div className="mx-auto max-w-2xl relative">
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
           Your next audit could take an hour, not&nbsp;a&nbsp;day
         </h2>
 

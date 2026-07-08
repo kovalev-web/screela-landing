@@ -20,13 +20,13 @@ const personas = [
 
 export function WhoItsFor() {
   return (
-    <section className="relative px-4 py-10 sm:px-6 sm:py-16">
-      <div className="mx-auto max-w-6xl text-center py-8 sm:py-12">
+    <section className="section-y relative">
+      <div className="mx-auto max-w-6xl text-left sm:text-center">
         <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           Made for people who study products for a living
         </h2>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-3 sm:gap-6">
+        <div className="mt-8 sm:mt-14 grid gap-4 sm:grid-cols-3 sm:gap-6">
           {personas.map((persona) => {
             const Icon = persona.icon
             return (

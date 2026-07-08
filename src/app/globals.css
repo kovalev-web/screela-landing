@@ -55,6 +55,10 @@ body {
   background-clip: text;
 }
 
+.section-y {
+  @apply px-4 py-6 sm:px-6 sm:py-12;
+}
+
 .glow-card {
   box-shadow:
     0 0 0 1px oklch(1 0 0 / 5%),

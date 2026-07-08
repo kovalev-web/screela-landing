@@ -1,9 +1,31 @@
+"use client"
+
+import * as React from "react"
 import Link from "next/link"
 
 export function Header() {
+  const [scrolled, setScrolled] = React.useState(false)
+
+  React.useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 8)
+    }
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
   return (
-    <header className="fixed left-1/2 top-4 z-50 w-full max-w-6xl -translate-x-1/2">
-      <div className="flex h-10 sm:h-12 items-center justify-between rounded-full bg-zinc-950/90 px-4 sm:px-5 backdrop-blur-xl">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-[padding] duration-300 ${
+        scrolled ? "p-0" : "p-4"
+      }`}
+    >
+      <div
+        className={`mx-auto flex h-10 sm:h-12 items-center justify-between bg-zinc-950/90 px-4 sm:px-5 backdrop-blur-xl transition-[max-width,border-radius] duration-300 ${
+          scrolled ? "max-w-full rounded-none" : "max-w-6xl rounded-full"
+        }`}
+      >
         <Link href="/" className="text-sm font-semibold tracking-tight text-zinc-100">
           Screela
         </Link>

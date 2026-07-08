@@ -1,7 +1,7 @@
 const features = [
   {
-    title: "Full-page capture that actually works",
-    text: "Sticky elements, modals, lazy-loaded content: the edge cases other tools get wrong.",
+    title: "Full-page capture, done right",
+    text: "Sticky headers, modals, lazy-loaded content: exactly where most other tools break.",
   },
   {
     title: "Desktop + mobile in one flow",
@@ -27,13 +27,13 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="relative overflow-x-hidden px-4 py-10 sm:px-6 sm:py-16 scroll-mt-10">
+    <section id="features" className="section-y relative overflow-x-hidden scroll-mt-10">
       <div className="mx-auto max-w-6xl relative">
-        <h2 className="text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
           Built for competitive UX audits, not screenshot hoarding
         </h2>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <div
               key={feature.title}
