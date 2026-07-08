@@ -9,6 +9,9 @@ const figtree = Figtree({
 
 export const metadata: Metadata = {
   title: "Screela — Capture competitor user flows as full-page screenshots on one board",
+  icons: {
+    icon: { url: "/favicon.svg", type: "image/svg+xml" },
+  },
   description:
     "Record any user flow step by step with one shortcut. Full-page screenshots, desktop + mobile, with source URL and time attached — organized on an infinite board. Built for competitive UX research.",
   openGraph: {

@@ -91,18 +91,15 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="relative mt-16 mx-auto max-w-6xl rounded-2xl aspect-video flex items-center justify-center border border-white/5 overflow-hidden glow-card"
-          style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px', backgroundColor: '#1a1a1a' }}
-        >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="size-[500px] rounded-full bg-slate-400/25 blur-[80px] animate-float-slow" />
-          </div>
-          <div className="relative text-center">
-            <svg className="mx-auto size-14 mb-3 text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-            </svg>
-            <span className="text-sm text-zinc-600">Video placeholder — Screela in action</span>
-          </div>
+        <div className="relative mt-16 mx-auto max-w-6xl rounded-2xl overflow-hidden glow-card border border-white/5">
+          <video
+            className="size-full object-cover"
+            src="/videos/demo.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
         </div>
 
         <div className="mt-8 flex justify-center">
