@@ -13,9 +13,16 @@ export function Hero() {
     e.preventDefault()
     if (!email) return
     setStatus("loading")
-    // TODO: connect to waitlist API
-    await new Promise((r) => setTimeout(r, 1000))
-    setStatus("success")
+    try {
+      await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      })
+      setStatus("success")
+    } catch {
+      setStatus("idle")
+    }
   }
 
   return (
