@@ -66,6 +66,7 @@ export function Features() {
                   <Icon
                     className={`${isFlagship ? "size-10 mb-5" : "size-8 mb-4"} text-zinc-500 transition-colors duration-300 group-hover:text-zinc-300`}
                     strokeWidth={1.2}
+                    aria-hidden="true"
                   />
                   <h3 className={isFlagship ? "text-h3-lg" : "text-h3"}>
                     {feature.title}

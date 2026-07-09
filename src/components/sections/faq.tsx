@@ -81,9 +81,10 @@ export function FAQ() {
                 className="border-b border-white/5"
               >
                 <CollapsibleTrigger asChild>
-                  <button className="flex w-full items-center justify-between py-5 text-base font-medium text-left cursor-pointer group">
+                  <button className="link-focus flex w-full items-center justify-between py-5 text-base font-medium text-left cursor-pointer group">
                     {faq.q}
                     <ChevronDown
+                      aria-hidden="true"
                       className={`size-4 shrink-0 text-zinc-500 transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}

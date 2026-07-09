@@ -36,7 +36,7 @@ export function WhoItsFor() {
             return (
               <Reveal key={persona.title} delay={i * 80}>
                 <div className="glow-card group relative rounded-2xl bg-zinc-900/60 p-6 sm:p-8 text-left border border-white/5">
-                  <Icon className="size-8 text-zinc-500 mb-4 transition-colors duration-300 group-hover:text-zinc-300" strokeWidth={1.2} />
+                  <Icon className="size-8 text-zinc-500 mb-4 transition-colors duration-300 group-hover:text-zinc-300" strokeWidth={1.2} aria-hidden="true" />
                   <h3 className="text-h3 text-zinc-200">{persona.title}</h3>
                   <p className="text-body mt-3 text-zinc-400">{persona.desc}</p>
                 </div>

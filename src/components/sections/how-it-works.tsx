@@ -40,7 +40,7 @@ export function HowItWorks() {
                 <div className="flex-1">
                   <p className="text-body mt-3 text-zinc-400">{step.text}</p>
                 </div>
-                <div className="mt-8 aspect-video w-full rounded-xl bg-zinc-800/80 border border-white/5 flex items-center justify-center text-sm text-zinc-600">
+                <div className="mt-8 aspect-video w-full rounded-xl bg-zinc-800/80 border border-white/5 flex items-center justify-center text-sm text-zinc-400">
                   Screenshot placeholder
                 </div>
               </div>

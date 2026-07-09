@@ -26,17 +26,17 @@ export function Header() {
           scrolled ? "max-w-full rounded-none" : "max-w-6xl rounded-full"
         }`}
       >
-        <Link href="/" className="text-sm font-semibold tracking-tight text-zinc-100">
+        <Link href="/" className="link-focus text-sm font-semibold tracking-tight text-zinc-100">
           Screela
         </Link>
         <nav className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-zinc-400">
-          <Link href="#how-it-works" className="hover:text-zinc-100 transition-colors whitespace-nowrap">
+          <Link href="#how-it-works" className="link-focus hover:text-zinc-100 transition-colors whitespace-nowrap">
             How it works
           </Link>
-          <Link href="#features" className="hover:text-zinc-100 transition-colors whitespace-nowrap">
+          <Link href="#features" className="link-focus hover:text-zinc-100 transition-colors whitespace-nowrap">
             Features
           </Link>
-          <Link href="#faq" className="hover:text-zinc-100 transition-colors whitespace-nowrap">
+          <Link href="#faq" className="link-focus hover:text-zinc-100 transition-colors whitespace-nowrap">
             FAQ
           </Link>
         </nav>

@@ -83,7 +83,11 @@ body {
 }
 
 .text-eyebrow {
-  @apply block text-xs font-semibold uppercase tracking-wide text-zinc-500 mb-3;
+  @apply block text-xs font-semibold uppercase tracking-wide text-zinc-400 mb-3;
+}
+
+.link-focus {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm;
 }
 
 .section-y {
@@ -157,4 +161,13 @@ body {
 
 .animate-mirror {
   animation: mirror-chaos 3s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
