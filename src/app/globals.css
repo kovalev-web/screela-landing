@@ -83,7 +83,7 @@ body {
 }
 
 .text-eyebrow {
-  @apply block text-xs font-semibold uppercase tracking-wide text-zinc-500;
+  @apply block text-xs font-semibold uppercase tracking-wide text-zinc-500 mb-3;
 }
 
 .section-y {
