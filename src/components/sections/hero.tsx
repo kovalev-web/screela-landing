@@ -5,10 +5,16 @@ export function Hero() {
     <section className="relative overflow-x-hidden px-4 pb-6 pt-20 sm:px-6 sm:pb-12 sm:pt-24 lg:pt-28">
       <div className="absolute inset-0 opacity-[0.15]" style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '28px 28px', maskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 100%)' }} />
       <div className="absolute top-[-15%] left-0 right-0 flex justify-center">
-        <div className="size-[700px] rounded-full bg-slate-400/20 blur-[100px] animate-float-slow" />
+        <div
+          className="size-[700px] rounded-full blur-[100px] animate-float-slow"
+          style={{ background: 'radial-gradient(circle, rgba(148,163,184,0.25) 0%, var(--color-background) 70%)' }}
+        />
       </div>
       <div className="absolute top-[-5%] right-0">
-        <div className="size-[400px] rounded-full bg-slate-400/15 blur-[80px] animate-float-slower" />
+        <div
+          className="size-[400px] rounded-full blur-[80px] animate-float-slower"
+          style={{ background: 'radial-gradient(circle, rgba(148,163,184,0.25) 0%, var(--color-background) 70%)' }}
+        />
       </div>
 
       <div className="mx-auto max-w-6xl relative">
@@ -49,7 +55,10 @@ export function Hero() {
           style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px', backgroundColor: '#1a1a1a' }}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="size-[500px] rounded-full bg-slate-400/25 blur-[80px] animate-float-slow" />
+            <div
+              className="size-[500px] rounded-full blur-[80px] animate-float-slow"
+              style={{ background: 'radial-gradient(circle, rgba(148,163,184,0.25) 0%, var(--color-background) 70%)' }}
+            />
           </div>
           <div className="relative text-center">
             <svg className="mx-auto size-14 mb-3 text-zinc-600 transition-colors group-hover:text-zinc-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
