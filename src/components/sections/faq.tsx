@@ -64,7 +64,8 @@ export function FAQ() {
       />
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+          <span className="text-eyebrow text-left sm:text-center">Need to know</span>
+          <h2 className="text-h2 text-left sm:text-center">
             Questions
           </h2>
         </Reveal>

@@ -44,7 +44,7 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl leading-[1.1]">
+          <h1 className="text-display">
             Competitor UX research without the screenshot{" "}
             {"chaos".split("").map((letter, i) => (
               <span
@@ -56,7 +56,7 @@ export function Hero() {
               </span>
             ))}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-zinc-400 sm:mt-6 sm:text-lg lg:text-xl max-w-xl sm:max-w-2xl sm:mx-auto">
+          <p className="text-body-lede mt-4 text-zinc-400 sm:mt-6 max-w-xl sm:max-w-2xl sm:mx-auto">
             Screela records entire user flows, like a competitor's onboarding or checkout, as full-page screenshots with one shortcut. Steps land on an infinite board in order, desktop and mobile side by side.
           </p>
 

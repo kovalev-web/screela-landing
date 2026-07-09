@@ -56,6 +56,36 @@ body {
   background-clip: text;
 }
 
+/* Typography scale — semantic roles, not raw utility steps */
+
+.text-display {
+  @apply text-4xl font-semibold tracking-tight leading-[1.05] sm:text-5xl sm:leading-[1.1] lg:text-6xl;
+}
+
+.text-h2 {
+  @apply text-3xl font-semibold tracking-tight sm:text-4xl;
+}
+
+.text-h3 {
+  @apply text-lg font-semibold;
+}
+
+.text-h3-lg {
+  @apply text-xl font-semibold;
+}
+
+.text-body-lede {
+  @apply text-base leading-relaxed sm:text-lg lg:text-xl;
+}
+
+.text-body {
+  @apply text-sm leading-relaxed;
+}
+
+.text-eyebrow {
+  @apply block text-xs font-semibold uppercase tracking-wide text-zinc-500;
+}
+
 .section-y {
   @apply px-4 py-6 sm:px-6 sm:py-12;
 }
@@ -64,10 +94,11 @@ body {
   box-shadow:
     0 0 0 1px oklch(1 0 0 / 5%),
     0 8px 32px -12px oklch(0 0 0 / 0.6);
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .glow-card:hover {
+  transform: translateY(-4px);
   box-shadow:
      0 0 0 1px oklch(1 0 0 / 10%),
      0 8px 40px -8px oklch(0.6 0 0 / 0.15);

@@ -27,7 +27,8 @@ export function FinalCTA() {
 
       <div className="mx-auto max-w-2xl relative">
         <Reveal>
-          <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+          <span className="text-eyebrow text-left sm:text-center">Get started</span>
+          <h2 className="text-h2 text-left sm:text-center">
             Your next audit could take an hour, not&nbsp;a&nbsp;day
           </h2>
 

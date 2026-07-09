@@ -46,7 +46,8 @@ export function Features() {
     <section id="features" className="section-y relative overflow-x-hidden scroll-mt-10">
       <div className="mx-auto max-w-6xl relative">
         <Reveal>
-          <h2 className="text-left sm:text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+          <span className="text-eyebrow text-left sm:text-center">Features</span>
+          <h2 className="text-h2 text-left sm:text-center">
             Built for competitive UX audits, not screenshot hoarding
           </h2>
         </Reveal>
@@ -66,10 +67,10 @@ export function Features() {
                     className={`${isFlagship ? "size-10 mb-5" : "size-8 mb-4"} text-zinc-500 transition-colors duration-300 group-hover:text-zinc-300`}
                     strokeWidth={1.2}
                   />
-                  <h3 className={isFlagship ? "text-xl font-semibold tracking-tight" : "text-lg font-semibold tracking-tight"}>
+                  <h3 className={isFlagship ? "text-h3-lg" : "text-h3"}>
                     {feature.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{feature.text}</p>
+                  <p className="text-body mt-3 text-zinc-400">{feature.text}</p>
                 </div>
               </Reveal>
             )
