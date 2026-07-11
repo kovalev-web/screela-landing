@@ -35,6 +35,8 @@
   --color-sidebar-border: oklch(1 0 0 / 10%);
   --color-sidebar-ring: oklch(0.556 0 0);
   --color-accent-2: oklch(0.65 0.19 264);
+  --color-accent-2-surface: #151A21;
+  --color-accent-2-surface-hover: #1a212b;
   --color-success: var(--color-emerald-400);
   --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
@@ -85,7 +87,7 @@ body {
 }
 
 .text-body {
-  @apply text-base leading-relaxed sm:text-lg;
+  @apply text-base leading-normal sm:text-lg;
 }
 
 .text-eyebrow {
@@ -110,19 +112,15 @@ body {
 }
 
 .accent-card {
-  background-color: oklch(0.65 0.19 264 / 10%);
+  background-color: var(--color-accent-2-surface);
 }
 
 .accent-card:hover {
-  background-color: oklch(0.65 0.19 264 / 16%);
+  background-color: var(--color-accent-2-surface-hover);
 }
 
 .accent-badge {
   background-color: oklch(0.65 0.19 264 / 18%);
   color: oklch(0.78 0.14 264);
-}
-
-.canvas-caption {
-  @apply mt-3 flex items-center justify-between text-xs text-muted-foreground;
 }
 

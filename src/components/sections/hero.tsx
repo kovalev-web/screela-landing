@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Pause, Play } from "lucide-react"
 import { WaitlistForm } from "@/components/waitlist-form"
+import { Button } from "@/components/ui/button"
 
 export function Hero() {
   const videoRef = React.useRef<HTMLVideoElement>(null)
@@ -73,11 +74,11 @@ export function Hero() {
           >
             {playing ? <Pause className="size-4" aria-hidden="true" /> : <Play className="size-4" aria-hidden="true" />}
           </button>
-          <div className="canvas-caption">
-            <span>Screela — live board</span>
-            <a href="#demo" className="link-focus transition-colors group-hover:text-foreground">
-              See it in action &rarr;
-            </a>
+          <div className="glow-card mt-4 flex items-center justify-between rounded-2xl px-5 py-3">
+            <span className="text-sm text-muted-foreground">Screela — live board</span>
+            <Button asChild size="sm">
+              <a href="#demo">See it in action &rarr;</a>
+            </Button>
           </div>
         </div>
       </div>
