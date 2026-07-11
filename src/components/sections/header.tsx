@@ -2,9 +2,12 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { WaitlistModal } from "@/components/waitlist-modal"
 
 export function Header() {
   const [scrolled, setScrolled] = React.useState(false)
+  const [modalOpen, setModalOpen] = React.useState(false)
 
   React.useEffect(() => {
     function onScroll() {
@@ -16,31 +19,39 @@ export function Header() {
   }, [])
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[padding] duration-300 ${
-        scrolled ? "p-0" : "p-4"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 p-4">
       <div
-        className={`mx-auto flex h-10 sm:h-12 items-center justify-between bg-black/90 px-4 sm:px-5 backdrop-blur-md transition-[max-width,border-radius] duration-300 ${
-          scrolled ? "max-w-full rounded-none" : "max-w-[1000px] rounded-full"
+        className={`mx-auto flex h-10 sm:h-12 max-w-[1000px] items-center justify-between rounded-full px-4 sm:px-5 backdrop-blur-lg transition-colors duration-300 ${
+          scrolled ? "bg-black/30" : "bg-black/90"
         }`}
       >
         <Link href="/" className="link-focus text-sm font-semibold tracking-tight text-foreground">
           Screela
         </Link>
-        <nav className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
-          <Link href="#how-it-works" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
-            How it works
-          </Link>
-          <Link href="#features" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
-            Features
-          </Link>
-          <Link href="#faq" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
-            FAQ
-          </Link>
-        </nav>
+        <div className="flex items-center gap-3 sm:gap-5">
+          <nav className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
+            <Link href="#how-it-works" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
+              How it works
+            </Link>
+            <Link href="#features" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
+              Features
+            </Link>
+            <Link href="#faq" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
+              FAQ
+            </Link>
+          </nav>
+          <div
+            className={`overflow-hidden transition-[max-width,opacity] duration-300 ${
+              scrolled ? "max-w-[160px] opacity-100" : "pointer-events-none max-w-0 opacity-0"
+            }`}
+          >
+            <Button size="sm" onClick={() => setModalOpen(true)}>
+              Get early access
+            </Button>
+          </div>
+        </div>
       </div>
+      <WaitlistModal open={modalOpen} onOpenChange={setModalOpen} />
     </header>
   )
 }

@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useWaitlistSubmit } from "@/hooks/use-waitlist-submit"
 import { Check, Loader2 } from "lucide-react"
 
 export function WaitlistForm({
@@ -13,24 +14,13 @@ export function WaitlistForm({
   justifyClassName?: string
 }) {
   const [email, setEmail] = React.useState("")
-  const [status, setStatus] = React.useState<"idle" | "loading" | "success" | "error">("idle")
+  const { status, submit } = useWaitlistSubmit()
   const inputId = `${id}-email`
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
-    setStatus("loading")
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      })
-      if (!res.ok) throw new Error("Request failed")
-      setStatus("success")
-    } catch {
-      setStatus("error")
-    }
+    submit(email)
   }
 
   return (
@@ -55,7 +45,7 @@ export function WaitlistForm({
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={status === "loading"}
-                className="h-10 min-w-0 flex-1 border-transparent bg-white/5 text-base placeholder:text-muted-foreground disabled:opacity-50 md:text-base"
+                className="h-10 min-w-0 flex-1 scroll-mt-24 border-transparent bg-white/5 text-base placeholder:text-muted-foreground disabled:opacity-50 md:text-base"
               />
               <Button
                 type="submit"

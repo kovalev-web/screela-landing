@@ -43,14 +43,14 @@ export function HowItWorks() {
                   i % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                <div className="flex flex-col justify-between p-6 sm:p-10 md:w-1/2">
+                <div className="flex flex-col justify-between bg-black/20 p-6 sm:p-10 md:w-1/2">
                   <div>
                     <h3 className="text-h3-lg">{step.title}</h3>
                     <p className="text-body mt-3 text-muted-foreground">{step.text}</p>
                   </div>
                   <span className="mt-8 text-sm text-muted-foreground">Step {step.number}</span>
                 </div>
-                <div className="flex w-full items-center justify-center bg-black/20 py-10 sm:py-14 md:w-1/2">
+                <div className="flex w-full items-center justify-center py-10 sm:py-14 md:w-1/2">
                   <img
                     src={step.image}
                     alt={step.alt}

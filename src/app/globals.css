@@ -49,6 +49,16 @@
   @apply border-border outline-ring/50;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
+/* scrollbar-gutter already reserves the space react-remove-scroll
+   compensates for with margin-right, causing a double shift on open */
+html body[data-scroll-locked] {
+  margin-right: 0 !important;
+}
+
 body {
   @apply bg-background text-foreground;
   font-family: var(--font-figtree), system-ui, sans-serif;
