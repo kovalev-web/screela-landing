@@ -6,18 +6,21 @@ const steps = [
     title: "Start a flow",
     text: "Pick a board and hit Start Flow. Screela names the run after the domain automatically, no typing required. Optionally add a mobile track.",
     image: "/images/how-it-works/extention1.png",
+    alt: "Screela Chrome extension popup with a board selected, the mobile track toggle, and the Start Flow button",
   },
   {
     number: "2",
     title: "Walk the product",
     text: "Press Alt+S on each step. Screela captures the full page, handling sticky headers and waiting out animations on its own.",
     image: "/images/how-it-works/extention2.png",
+    alt: "Screela extension recording a flow in progress, showing the Alt+S capture shortcut and the previous step already saved",
   },
   {
     number: "3",
     title: "Get a finished flow",
     text: "Finished flows land back in the list already named, timed, and tagged with step count and device, desktop, mobile, or both, so there's nothing left to sort or rename.",
     image: "/images/how-it-works/extention3.png",
+    alt: "Screela extension flow list with completed captures auto-named by domain, showing step count, device, and duration",
   },
 ]
 
@@ -50,9 +53,11 @@ export function HowItWorks() {
                 <div className="flex w-full items-center justify-center bg-black/20 py-10 sm:py-14 md:w-1/2">
                   <img
                     src={step.image}
-                    alt={`${step.title} in the Screela extension`}
+                    alt={step.alt}
                     width={362}
                     height={390}
+                    loading="lazy"
+                    decoding="async"
                     className="h-auto w-[280px] sm:w-[362px]"
                   />
                 </div>
