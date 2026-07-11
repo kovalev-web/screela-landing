@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
 import { useWaitlistSubmit } from "@/hooks/use-waitlist-submit"
-import { Check, Loader2 } from "lucide-react"
+import { Check, Loader2, PartyPopper } from "lucide-react"
 
 export function WaitlistModal({
   open,
@@ -25,7 +25,7 @@ export function WaitlistModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="rounded-2xl p-6 sm:max-w-sm sm:p-8">
+      <DialogContent className="gap-2 rounded-2xl p-3 sm:max-w-sm sm:p-4">
         {status === "success" ? (
           <div className="flex flex-col items-center gap-2 py-4 text-center">
             <Check className="size-6 text-success" aria-hidden="true" />
@@ -34,12 +34,15 @@ export function WaitlistModal({
           </div>
         ) : (
           <>
-            <DialogTitle className="text-h3-lg">Get early access</DialogTitle>
-            <DialogDescription className="text-body mt-2 text-muted-foreground">
+            <DialogTitle className="text-h3-lg flex items-center gap-2">
+              Get early access
+              <PartyPopper className="size-5" aria-hidden="true" />
+            </DialogTitle>
+            <DialogDescription className="text-body mt-1 text-muted-foreground">
               Leave your email and we&rsquo;ll let you know the moment the beta opens.
             </DialogDescription>
 
-            <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-2">
+            <form onSubmit={handleSubmit} className="mt-3 flex flex-col gap-4">
               <label htmlFor="modal-email" className="sr-only">
                 Email address
               </label>
