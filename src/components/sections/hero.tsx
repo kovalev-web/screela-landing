@@ -1,6 +1,8 @@
 "use client"
 
+import { Pause } from "lucide-react"
 import { WaitlistForm } from "@/components/waitlist-form"
+import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
@@ -26,6 +28,23 @@ export function Hero() {
           <p className="mt-3 text-sm text-muted-foreground">
             Free while in beta. Chrome extension + web board.
           </p>
+        </div>
+
+        <div className="group relative mt-16 mx-auto max-w-[1000px]">
+          <div className="glow-card aspect-video w-full rounded-2xl bg-black/40" />
+          <button
+            type="button"
+            aria-label="Pause background video"
+            className="link-focus absolute top-3 right-3 z-10 flex size-8 items-center justify-center rounded-full bg-black/60 text-foreground backdrop-blur-sm"
+          >
+            <Pause className="size-4" aria-hidden="true" />
+          </button>
+          <div className="glow-card mt-4 flex items-center justify-between rounded-2xl px-5 py-3">
+            <span className="text-sm text-muted-foreground">Screela — live board</span>
+            <Button asChild size="sm">
+              <a href="#demo">See it in action &rarr;</a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

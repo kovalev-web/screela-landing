@@ -5,16 +5,19 @@ const steps = [
     number: "1",
     title: "Start a flow",
     text: 'Name it ("Stripe onboarding"), hit record. Optionally add a mobile track.',
+    image: "/images/how-it-works/extention1.png",
   },
   {
     number: "2",
     title: "Walk the product",
     text: "Press Cmd+Shift+S on each step. Screela captures the full page, handling sticky headers and waiting out animations on its own.",
+    image: "/images/how-it-works/extention2.png",
   },
   {
     number: "3",
     title: "Get a finished flow",
     text: "Steps land on your board already in order and numbered, with the URL and time stamped on each card, so there's nothing left to sort or rename.",
+    image: "/images/how-it-works/extention3.png",
   },
 ]
 
@@ -29,19 +32,30 @@ export function HowItWorks() {
           </h2>
         </Reveal>
 
-        <div className="mt-8 sm:mt-14 grid gap-3 md:grid-cols-3">
+        <div className="mt-8 sm:mt-14 flex flex-col gap-3">
           {steps.map((step, i) => (
             <Reveal key={step.number} delay={i * 100}>
-              <div className="glow-card group relative flex flex-col items-start text-left rounded-2xl p-6 sm:p-8 h-full">
-                <span className="accent-badge flex size-10 items-center justify-center rounded-full text-sm font-semibold transition-transform duration-300 group-hover:scale-110">
-                  {step.number}
-                </span>
-                <h3 className="text-h3-lg mt-5">{step.title}</h3>
-                <div className="flex-1">
-                  <p className="text-body mt-3 text-muted-foreground">{step.text}</p>
+              <div
+                className={`glow-card group flex flex-col overflow-hidden rounded-2xl md:flex-row ${
+                  i % 2 === 1 ? "md:flex-row-reverse" : ""
+                }`}
+              >
+                <div className="flex flex-col justify-between p-6 sm:p-10 md:w-1/2">
+                  <div>
+                    <h3 className="text-h3-lg">{step.title}</h3>
+                    <p className="text-body mt-3 text-muted-foreground">{step.text}</p>
+                  </div>
+                  <span className="mt-8 text-sm text-muted-foreground">Step {step.number}</span>
                 </div>
-                <div className="mt-8 aspect-video w-full rounded-xl bg-black/40" />
-                <span className="mt-3 text-xs text-muted-foreground">Step {step.number} capture</span>
+                <div className="flex w-full items-center justify-center bg-black/20 py-10 sm:py-14 md:w-1/2">
+                  <img
+                    src={step.image}
+                    alt={`${step.title} in the Screela extension`}
+                    width={362}
+                    height={390}
+                    className="h-auto w-[280px] sm:w-[362px]"
+                  />
+                </div>
               </div>
             </Reveal>
           ))}
