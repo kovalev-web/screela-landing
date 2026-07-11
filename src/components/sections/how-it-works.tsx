@@ -4,19 +4,19 @@ const steps = [
   {
     number: "1",
     title: "Start a flow",
-    text: 'Name it ("Stripe onboarding"), hit record. Optionally add a mobile track.',
+    text: "Pick a board and hit Start Flow. Screela names the run after the domain automatically, no typing required. Optionally add a mobile track.",
     image: "/images/how-it-works/extention1.png",
   },
   {
     number: "2",
     title: "Walk the product",
-    text: "Press Cmd+Shift+S on each step. Screela captures the full page, handling sticky headers and waiting out animations on its own.",
+    text: "Press Alt+S on each step. Screela captures the full page, handling sticky headers and waiting out animations on its own.",
     image: "/images/how-it-works/extention2.png",
   },
   {
     number: "3",
     title: "Get a finished flow",
-    text: "Steps land on your board already in order and numbered, with the URL and time stamped on each card, so there's nothing left to sort or rename.",
+    text: "Finished flows land back in the list already named, timed, and tagged with step count and device, desktop, mobile, or both, so there's nothing left to sort or rename.",
     image: "/images/how-it-works/extention3.png",
   },
 ]
