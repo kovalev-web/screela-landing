@@ -36,7 +36,7 @@ export function WaitlistForm({
   return (
     <div role="status" aria-live="polite">
       {status === "success" ? (
-        <div className={`mt-8 flex items-center ${justifyClassName} gap-2 text-emerald-400`}>
+        <div className={`mt-8 flex items-center ${justifyClassName} gap-2 text-success`}>
           <Check className="size-5" aria-hidden="true" />
           <span className="text-sm font-medium">You&rsquo;re on the list. We&rsquo;ll be in touch.</span>
         </div>
@@ -55,7 +55,7 @@ export function WaitlistForm({
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={status === "loading"}
-                className="h-10 min-w-0 flex-1 bg-white/5 border-white/10 placeholder:text-zinc-400 focus:border-slate-400/40 focus:ring-slate-400/20 disabled:opacity-50"
+                className="h-10 min-w-0 flex-1 border-transparent bg-white/5 text-base placeholder:text-muted-foreground disabled:opacity-50 md:text-base"
               />
               <Button
                 type="submit"
@@ -74,7 +74,7 @@ export function WaitlistForm({
               </Button>
             </div>
             {status === "error" && (
-              <p className="text-sm text-red-400">Something went wrong. Please try again.</p>
+              <p className="text-sm text-destructive">Something went wrong. Please try again.</p>
             )}
           </div>
         </form>

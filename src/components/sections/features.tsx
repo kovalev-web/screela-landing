@@ -44,34 +44,34 @@ const features = [
 export function Features() {
   return (
     <section id="features" className="section-y relative overflow-x-hidden scroll-mt-10">
-      <div className="mx-auto max-w-6xl relative">
+      <div className="mx-auto max-w-[1000px] relative">
         <Reveal>
-          <span className="text-eyebrow text-left sm:text-center">Features</span>
-          <h2 className="text-h2 text-left sm:text-center">
+          <span className="text-eyebrow text-left">Features</span>
+          <h2 className="text-h2 text-left">
             Built for competitive UX audits, not screenshot hoarding
           </h2>
         </Reveal>
 
-        <div className="mt-8 sm:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3">
+        <div className="mt-8 sm:mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3">
           {features.map((feature, i) => {
             const Icon = feature.icon
             const isFlagship = feature.accent
             return (
               <Reveal key={feature.title} delay={i * 80} className={feature.cell}>
                 <div
-                  className={`glow-card group relative flex h-full flex-col rounded-2xl bg-zinc-900/60 p-6 sm:p-8 border border-white/5 overflow-hidden ${
+                  className={`glow-card group relative flex h-full flex-col rounded-2xl p-6 sm:p-8 overflow-hidden ${
                     isFlagship ? "accent-card" : ""
                   }`}
                 >
                   <Icon
-                    className={`${isFlagship ? "size-10 mb-5" : "size-8 mb-4"} text-zinc-500 transition-colors duration-300 group-hover:text-zinc-300`}
+                    className="size-8 mb-4 text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
                     strokeWidth={1.2}
                     aria-hidden="true"
                   />
                   <h3 className={isFlagship ? "text-h3-lg" : "text-h3"}>
                     {feature.title}
                   </h3>
-                  <p className="text-body mt-3 text-zinc-400">{feature.text}</p>
+                  <p className="text-body mt-3 text-muted-foreground">{feature.text}</p>
                 </div>
               </Reveal>
             )

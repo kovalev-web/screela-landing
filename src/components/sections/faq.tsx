@@ -62,15 +62,15 @@ export function FAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-2xl text-center">
         <Reveal>
-          <span className="text-eyebrow text-left sm:text-center">Need to know</span>
-          <h2 className="text-h2 text-left sm:text-center">
+          <span className="text-eyebrow text-center">Need to know</span>
+          <h2 className="text-h2 text-center">
             Questions
           </h2>
         </Reveal>
 
-        <div className="mx-auto max-w-2xl mt-8 sm:mt-14">
+        <div className="mt-8 sm:mt-14 flex flex-col gap-3 text-left">
           {faqs.map((faq) => {
             const isOpen = openItems.includes(faq.q)
             return (
@@ -78,21 +78,21 @@ export function FAQ() {
                 key={faq.q}
                 open={isOpen}
                 onOpenChange={() => toggle(faq.q)}
-                className="border-b border-white/5"
+                className="glow-card rounded-2xl px-5"
               >
                 <CollapsibleTrigger asChild>
                   <button className="link-focus flex w-full items-center justify-between py-5 text-base font-medium text-left cursor-pointer group">
                     {faq.q}
                     <ChevronDown
                       aria-hidden="true"
-                      className={`size-4 shrink-0 text-zinc-500 transition-transform duration-300 ${
+                      className={`size-4 shrink-0 text-muted-foreground transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                 </CollapsibleTrigger>
-                <CollapsibleContent className="overflow-hidden text-sm data-open:animate-accordion-down data-closed:animate-accordion-up">
-                  <div className="pb-5 text-zinc-400 leading-relaxed">
+                <CollapsibleContent className="overflow-hidden data-open:animate-accordion-down data-closed:animate-accordion-up">
+                  <div className="text-body pb-5 text-muted-foreground">
                     <p dangerouslySetInnerHTML={{ __html: faq.a }} />
                   </div>
                 </CollapsibleContent>

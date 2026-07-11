@@ -22,21 +22,21 @@ export function Header() {
       }`}
     >
       <div
-        className={`mx-auto flex h-10 sm:h-12 items-center justify-between bg-zinc-950/90 px-4 sm:px-5 backdrop-blur-xl transition-[max-width,border-radius] duration-300 ${
-          scrolled ? "max-w-full rounded-none" : "max-w-6xl rounded-full"
+        className={`mx-auto flex h-10 sm:h-12 items-center justify-between bg-black/90 px-4 sm:px-5 backdrop-blur-md transition-[max-width,border-radius] duration-300 ${
+          scrolled ? "max-w-full rounded-none" : "max-w-[1000px] rounded-full"
         }`}
       >
-        <Link href="/" className="link-focus text-sm font-semibold tracking-tight text-zinc-100">
+        <Link href="/" className="link-focus text-sm font-semibold tracking-tight text-foreground">
           Screela
         </Link>
-        <nav className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-zinc-400">
-          <Link href="#how-it-works" className="link-focus hover:text-zinc-100 transition-colors whitespace-nowrap">
+        <nav className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
+          <Link href="#how-it-works" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
             How it works
           </Link>
-          <Link href="#features" className="link-focus hover:text-zinc-100 transition-colors whitespace-nowrap">
+          <Link href="#features" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
             Features
           </Link>
-          <Link href="#faq" className="link-focus hover:text-zinc-100 transition-colors whitespace-nowrap">
+          <Link href="#faq" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
             FAQ
           </Link>
         </nav>
