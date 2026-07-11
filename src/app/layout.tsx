@@ -14,7 +14,12 @@ export const metadata: Metadata = {
   // When you register the site in Google Search Console via the HTML tag method,
   // paste the verification code here: verification: { google: "your-code-here" },
   icons: {
-    icon: { url: "/favicon.svg", type: "image/svg+xml" },
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
   description:
     "Record any user flow step by step with one shortcut. Full-page screenshots, desktop + mobile, with source URL and time attached — organized on an infinite board. Built for competitive UX research.",
