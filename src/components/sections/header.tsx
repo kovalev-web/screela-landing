@@ -25,7 +25,8 @@ export function Header() {
           scrolled ? "bg-black/30" : "bg-black/90"
         }`}
       >
-        <Link href="/" className="link-focus text-sm font-semibold tracking-tight text-foreground">
+        <Link href="/" className="link-focus flex items-center text-sm font-semibold tracking-tight text-foreground">
+          <img src="/logo.svg" alt="" width={20} height={20} className="mr-[6px]" />
           Screela
         </Link>
         <div className="flex items-center gap-3 sm:gap-5">
