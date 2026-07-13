@@ -10,6 +10,9 @@ const figtree = Figtree({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://screela.com"),
+  // "./" resolves per page against metadataBase, so every page gets its own
+  // bare-domain canonical — tells Google the www duplicates aren't canonical.
+  alternates: { canonical: "./" },
   title: "Screela — Capture competitor user flows as full-page screenshots on one board",
   icons: {
     icon: [
