@@ -27,14 +27,14 @@ export const metadata: Metadata = {
       "Record any user flow step by step with one shortcut. Full-page screenshots, desktop + mobile, with source URL and time attached — organized on an infinite board. Built for competitive UX research.",
     type: "website",
     siteName: "Screela",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image2.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Screela — Capture competitor user flows as full-page screenshots on one board",
     description:
       "Record any user flow step by step with one shortcut. Full-page screenshots, desktop + mobile, with source URL and time attached — organized on an infinite board. Built for competitive UX research.",
-    images: ["/og-image.png"],
+    images: ["/og-image2.png"],
   },
 };
 
