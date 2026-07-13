@@ -42,7 +42,7 @@ export function Hero() {
           <div className="glow-card mt-4 flex items-center justify-between rounded-2xl px-5 py-3">
             <span className="text-sm text-muted-foreground">Screela — live board</span>
             <Button asChild size="sm">
-              <a href="#demo">See it in action &rarr;</a>
+              <a href="https://app.screela.com/s/board/a40fd611-61dc-4861-b307-ac8ff9f1b373" target="_blank" rel="noopener noreferrer">See it in action &rarr;</a>
             </Button>
           </div>
         </div>

@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-[1000px] flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
         <span>&copy; {new Date().getFullYear()} Screela</span>
         <nav className="flex flex-wrap justify-center gap-4 sm:gap-6">
-          <a href="#demo" className="link-focus hover:text-foreground transition-colors">
+          <a href="https://app.screela.com/s/board/a40fd611-61dc-4861-b307-ac8ff9f1b373" target="_blank" rel="noopener noreferrer" className="link-focus hover:text-foreground transition-colors">
             Live board
           </a>
           <Link href="/privacy" className="link-focus hover:text-foreground transition-colors">

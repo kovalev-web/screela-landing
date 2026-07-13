@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Can I try it without installing?",
-    a: 'Yes, explore a <a href="#demo" class="underline underline-offset-3 hover:text-foreground">live demo board</a>.',
+    a: 'Yes, explore a <a href="https://app.screela.com/s/board/a40fd611-61dc-4861-b307-ac8ff9f1b373" target="_blank" rel="noopener noreferrer" class="underline underline-offset-3 hover:text-foreground">live demo board</a>.',
   },
   {
     q: "What does it cost?",
