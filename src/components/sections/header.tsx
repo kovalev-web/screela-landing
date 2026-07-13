@@ -30,7 +30,7 @@ export function Header() {
           Screela
         </Link>
         <div className="flex items-center gap-3 sm:gap-5">
-          <nav className="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
+          <nav className="hidden sm:flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
             <Link href="#how-it-works" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
               How it works
             </Link>
@@ -47,7 +47,7 @@ export function Header() {
             }`}
           >
             <Button size="sm" onClick={() => setModalOpen(true)}>
-              Get early access
+              Get access
             </Button>
           </div>
         </div>
