@@ -1,6 +1,6 @@
 "use client"
 
-import { Pause } from "lucide-react"
+import Image from "next/image"
 import { WaitlistForm } from "@/components/waitlist-form"
 import { Button } from "@/components/ui/button"
 
@@ -31,14 +31,15 @@ export function Hero() {
         </div>
 
         <div className="group relative mt-16 mx-auto max-w-[1000px]">
-          <div className="glow-card aspect-video w-full rounded-2xl bg-black/40" />
-          <button
-            type="button"
-            aria-label="Pause background video"
-            className="link-focus absolute top-3 right-3 z-10 flex size-8 items-center justify-center rounded-full bg-black/60 text-foreground backdrop-blur-sm"
-          >
-            <Pause className="size-4" aria-hidden="true" />
-          </button>
+          <div className="glow-card relative aspect-video w-full overflow-hidden rounded-2xl bg-black/40">
+            <Image
+              src="/hero-board.png"
+              alt="Screela board with captured competitor flows"
+              fill
+              priority
+              className="object-cover object-top"
+            />
+          </div>
           <div className="glow-card mt-4 flex items-center justify-between rounded-2xl px-5 py-3">
             <span className="text-sm text-muted-foreground">Screela — live board</span>
             <Button asChild size="sm">
