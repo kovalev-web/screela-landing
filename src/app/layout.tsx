@@ -11,8 +11,6 @@ const figtree = Figtree({
 export const metadata: Metadata = {
   metadataBase: new URL("https://screela.com"),
   title: "Screela — Capture competitor user flows as full-page screenshots on one board",
-  // When you register the site in Google Search Console via the HTML tag method,
-  // paste the verification code here: verification: { google: "your-code-here" },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -29,12 +27,14 @@ export const metadata: Metadata = {
       "Record any user flow step by step with one shortcut. Full-page screenshots, desktop + mobile, with source URL and time attached — organized on an infinite board. Built for competitive UX research.",
     type: "website",
     siteName: "Screela",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Screela — Capture competitor user flows as full-page screenshots on one board",
     description:
       "Record any user flow step by step with one shortcut. Full-page screenshots, desktop + mobile, with source URL and time attached — organized on an infinite board. Built for competitive UX research.",
+    images: ["/og-image.png"],
   },
 };
 
