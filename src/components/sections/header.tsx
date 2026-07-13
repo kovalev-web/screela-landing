@@ -19,7 +19,7 @@ export function Header() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 p-4">
+    <header className="fixed inset-x-0 top-0 z-50 p-3 sm:p-4">
       <div
         className={`mx-auto flex h-10 sm:h-12 max-w-[1000px] items-center justify-between rounded-full px-4 sm:px-5 backdrop-blur-lg transition-colors duration-300 ${
           scrolled ? "bg-black/30" : "bg-black/90"
@@ -29,8 +29,8 @@ export function Header() {
           <img src="/logo.svg" alt="" width={20} height={20} className="mr-[6px]" />
           Screela
         </Link>
-        <div className="flex items-center gap-3 sm:gap-5">
-          <nav className="hidden sm:flex items-center gap-3 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 sm:gap-5">
+          <nav className="flex items-center gap-2 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
             <Link href="#how-it-works" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
               How it works
             </Link>
@@ -43,11 +43,11 @@ export function Header() {
           </nav>
           <div
             className={`overflow-hidden transition-[max-width,opacity] duration-300 ${
-              scrolled ? "max-w-[160px] opacity-100" : "pointer-events-none max-w-0 opacity-0"
+              scrolled ? "max-w-[80px] opacity-100" : "pointer-events-none max-w-0 opacity-0"
             }`}
           >
             <Button size="sm" onClick={() => setModalOpen(true)}>
-              Get access
+              Join
             </Button>
           </div>
         </div>
