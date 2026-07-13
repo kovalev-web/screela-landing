@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Screela — Capture competitor user flows as full-page screenshots on one board",
   icons: {
     icon: [
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "48x48" },
       { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
