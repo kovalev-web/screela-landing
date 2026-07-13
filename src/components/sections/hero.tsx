@@ -73,9 +73,9 @@ export function Hero() {
               <Play className="size-4" aria-hidden="true" />
             )}
           </button>
-          <div className="glow-card mt-4 flex items-center justify-between rounded-2xl px-5 py-3">
-            <span className="text-sm text-muted-foreground">Screela — live board</span>
-            <Button asChild size="sm">
+          <div className="mt-4 flex items-center justify-between rounded-2xl bg-accent-2 px-5 py-3">
+            <span className="text-sm font-medium text-white">Screela — live board</span>
+            <Button asChild size="lg" className="h-10 shrink-0 animate-cta-pulse">
               <a href="https://app.screela.com/s/board/a40fd611-61dc-4861-b307-ac8ff9f1b373" target="_blank" rel="noopener noreferrer">See it in action &rarr;</a>
             </Button>
           </div>

@@ -134,3 +134,27 @@ body {
   color: oklch(0.78 0.14 264);
 }
 
+/* Looping pulse ring for the hero's "See it in action" CTA — it sits right
+   under the demo video and gets visually lost without motion. */
+@keyframes cta-pulse {
+  0% {
+    box-shadow: 0 0 0 0 oklch(1 0 0 / 45%);
+  }
+  70% {
+    box-shadow: 0 0 0 10px oklch(1 0 0 / 0%);
+  }
+  100% {
+    box-shadow: 0 0 0 0 oklch(1 0 0 / 0%);
+  }
+}
+
+.animate-cta-pulse {
+  animation: cta-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cta-pulse {
+    animation: none;
+  }
+}
+
