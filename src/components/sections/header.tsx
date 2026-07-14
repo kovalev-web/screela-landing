@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/logo"
 import { WaitlistModal } from "@/components/waitlist-modal"
 
 export function Header() {
@@ -19,36 +19,44 @@ export function Header() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 p-3 sm:p-4">
+    <header className="fixed inset-x-0 top-0 z-50 px-5 pt-4 sm:px-8">
       <div
-        className={`mx-auto flex h-10 sm:h-12 max-w-[1000px] items-center justify-between rounded-full px-4 sm:px-5 backdrop-blur-lg transition-colors duration-300 ${
-          scrolled ? "bg-black/30" : "bg-black/90"
+        className={`section-container flex h-12 items-center justify-between rounded-2xl px-4 backdrop-blur-lg transition-colors duration-300 sm:h-[57px] sm:px-[30px] ${
+          scrolled ? "bg-surface-2/80" : "bg-surface-2"
         }`}
       >
-        <Link href="/" className="link-focus flex items-center text-sm font-semibold tracking-tight text-foreground">
-          <img src="/logo.svg" alt="" width={20} height={20} className="mr-[6px]" />
-          Screela
+        <Link
+          href="/"
+          className="link-focus flex items-center gap-1.5 text-base font-semibold tracking-[-0.02em] text-text-soft transition-colors hover:text-white"
+        >
+          <Logo className="size-5 shrink-0" />
+          <span className="max-[430px]:hidden">Screela</span>
         </Link>
-        <div className="flex items-center gap-2 sm:gap-5">
-          <nav className="flex items-center gap-2 sm:gap-5 text-xs sm:text-sm text-muted-foreground">
-            <Link href="#how-it-works" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
+        <div className="flex items-center gap-3 sm:gap-6">
+          <nav className="flex items-center gap-3 text-xs font-semibold tracking-[-0.02em] text-text-soft sm:gap-[26px] sm:text-base">
+            <Link href="#how-it-works" className="link-focus whitespace-nowrap transition-colors hover:text-white">
               How it works
             </Link>
-            <Link href="#features" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
+            <Link href="#features" className="link-focus whitespace-nowrap transition-colors hover:text-white">
               Features
             </Link>
-            <Link href="#faq" className="link-focus hover:text-foreground transition-colors whitespace-nowrap">
+            <Link href="#faq" className="link-focus whitespace-nowrap transition-colors hover:text-white">
               FAQ
             </Link>
           </nav>
           <div
             className={`overflow-hidden transition-[max-width,opacity] duration-300 ${
-              scrolled ? "max-w-[80px] opacity-100" : "pointer-events-none max-w-0 opacity-0"
+              scrolled ? "max-w-[100px] opacity-100" : "pointer-events-none max-w-0 opacity-0"
             }`}
           >
-            <Button size="sm" onClick={() => setModalOpen(true)}>
+            <button
+              type="button"
+              onClick={() => setModalOpen(true)}
+              className="btn-accent h-9 rounded-[12px] px-4 text-sm"
+              style={{ boxShadow: "none" }}
+            >
               Join
-            </Button>
+            </button>
           </div>
         </div>
       </div>

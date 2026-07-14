@@ -1,86 +1,87 @@
-"use client"
-
-import { useRef, useState } from "react"
-import { Pause, Play } from "lucide-react"
 import { WaitlistForm } from "@/components/waitlist-form"
-import { Button } from "@/components/ui/button"
+import { BoardCard, SearchField, CreateBoardButton } from "@/components/mockup"
+
+/* Layered board-app mockup (left side of the hero). Positions mirror the
+   Figma frame "main picture for animation" — kept as separate DOM layers
+   so the cards/skeletons can be animated individually later. */
+function HeroBoardMockup() {
+  return (
+    <div
+      aria-hidden="true"
+      className="relative h-[838px] w-[351px] rounded-[20px] border border-[#2a2a2a] bg-card"
+    >
+      {/* toolbar */}
+      <div className="absolute left-3.5 top-3.5 flex w-[323px] items-center gap-3">
+        <SearchField className="w-[170px]" />
+        <CreateBoardButton className="flex-1" />
+      </div>
+
+      {/* skeleton slots */}
+      <div className="absolute left-3.5 top-[259px] h-[179px] w-[323px] rounded-2xl bg-panel/40" />
+      <div className="absolute left-3.5 top-[452px] h-[179px] w-[323px] rounded-2xl bg-panel/40" />
+      <div className="absolute left-3.5 top-[645px] h-[179px] w-[323px] rounded-2xl bg-panel/40" />
+
+      {/* board cards — offset over the slots, mid-animation look */}
+      <BoardCard
+        title="Components part"
+        meta="19 shots, 9 flows"
+        thumbs={[1, 2, 3]}
+        className="absolute left-3.5 top-[66px] w-[323px]"
+      />
+      <BoardCard
+        title="Inspiration part"
+        meta="2 shots, 1 flow"
+        thumbs={[4, 5, 6]}
+        className="absolute left-[54px] top-[259px] w-[323px] shadow-[0_16px_64px_rgba(0,0,0,0.55)]"
+      />
+      <BoardCard
+        title="Landing refs"
+        meta="2 shots, 1 flow"
+        thumbs={[7, 8, 9]}
+        className="absolute -left-[25px] top-[452px] w-[323px] shadow-[0_16px_64px_rgba(0,0,0,0.55)]"
+      />
+      <BoardCard
+        title="Inspiration part"
+        meta="2 shots, 1 flow"
+        thumbs={[10, 11, 12]}
+        className="absolute left-[54px] top-[645px] w-[323px] shadow-[0_16px_64px_rgba(0,0,0,0.55)]"
+      />
+    </div>
+  )
+}
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isPlaying, setIsPlaying] = useState(true)
-
-  function toggleVideo() {
-    const video = videoRef.current
-    if (!video) return
-    if (video.paused) {
-      video.play()
-      setIsPlaying(true)
-    } else {
-      video.pause()
-      setIsPlaying(false)
-    }
-  }
-
   return (
-    <section className="relative overflow-x-hidden px-4 pb-6 pt-20 sm:px-6 sm:pb-12 sm:pt-24 lg:pt-28">
-      <div className="mx-auto max-w-[1000px] relative">
-        <div className="max-w-4xl text-left">
-          <div className="flex justify-start mb-6">
-            <span className="glow-card inline-flex h-10 items-center gap-1.5 rounded-full px-5 text-base text-muted-foreground">
-              <span className="size-1.5 rounded-full bg-success" />
-              Almost beta
-            </span>
-          </div>
-
-          <h1 className="text-display">
-            Competitor UX research without the screenshot chaos
-          </h1>
-          <p className="text-body-lede mt-4 text-muted-foreground sm:mt-6 max-w-xl sm:max-w-2xl">
-            Screela records entire user flows, like a competitor's onboarding or checkout, as full-page screenshots with one shortcut. Steps land on an infinite board in order, desktop and mobile side by side.
-          </p>
-
-          <WaitlistForm id="hero" justifyClassName="justify-start" />
-
-          <p className="mt-3 text-sm text-muted-foreground">
-            Free while in beta. Chrome extension + web board.
-          </p>
+    <section className="bg-dots relative overflow-hidden bg-background px-5 pt-32 sm:px-8 lg:h-[878px] lg:pt-[117px]">
+      <div className="section-container grid gap-16 lg:grid-cols-[351px_1fr] lg:gap-[110px]">
+        <div className="order-2 justify-self-center max-lg:h-[480px] max-lg:overflow-hidden max-lg:[mask-image:linear-gradient(to_bottom,black_65%,transparent)] lg:order-1">
+          <HeroBoardMockup />
         </div>
 
-        <div className="group relative mt-16 mx-auto max-w-[1000px]">
-          <div className="glow-card relative aspect-video w-full overflow-hidden rounded-2xl bg-black/40">
-            <video
-              ref={videoRef}
-              className="size-full object-cover object-top"
-              poster="/hero-board.png"
-              autoPlay
-              muted
-              loop
-              playsInline
-            >
-              <source src="/hero-demo.webm" type="video/webm" />
-              <source src="/hero-demo.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <button
-            type="button"
-            onClick={toggleVideo}
-            aria-label={isPlaying ? "Pause background video" : "Play background video"}
-            className="link-focus absolute top-3 right-3 z-10 flex size-8 items-center justify-center rounded-full bg-black/60 text-foreground backdrop-blur-sm"
-          >
-            {isPlaying ? (
-              <Pause className="size-4" aria-hidden="true" />
-            ) : (
-              <Play className="size-4" aria-hidden="true" />
-            )}
-          </button>
-          <div className="accent-card mt-4 flex items-center justify-between rounded-2xl px-5 py-3">
-            <span className="text-sm font-medium text-white">Screela — live board</span>
-            <Button asChild size="lg" className="h-10 shrink-0 animate-cta-pulse">
-              <a href="https://app.screela.com/s/board/a40fd611-61dc-4861-b307-ac8ff9f1b373" target="_blank" rel="noopener noreferrer">See it in action &rarr;</a>
-            </Button>
+        <div className="order-1 lg:order-2 lg:max-w-[698px]">
+          <h1 className="text-display">
+            Competitor <span className="text-[#6a6a6a]">UX research</span> without the screenshot chaos
+          </h1>
+          <p className="text-body-lede mt-8 text-foreground lg:mt-10">
+            Screela records entire user flows, like a competitor&apos;s onboarding or checkout, as
+            full-page screenshots with one shortcut. Steps land on an infinite board in order,
+            desktop and mobile side by side.
+          </p>
+
+          <div className="mt-12 lg:mt-[79px]">
+            <WaitlistForm id="hero" justifyClassName="justify-start" />
+            <p className="mt-4 text-lg font-light text-text-dim">
+              Free while in beta. Chrome extension + web board
+            </p>
           </div>
         </div>
       </div>
+
+      {/* bottom fade over the cut-off mockup */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[82px] bg-gradient-to-b from-transparent to-background"
+      />
     </section>
   )
 }

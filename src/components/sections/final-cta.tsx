@@ -1,18 +1,18 @@
 import { WaitlistForm } from "@/components/waitlist-form"
-import { Reveal } from "@/components/reveal"
 
 export function FinalCTA() {
   return (
-    <section className="section-y relative overflow-hidden">
-      <div className="mx-auto max-w-2xl relative">
-        <Reveal>
-          <span className="text-eyebrow text-left">Get started</span>
-          <h2 className="text-h2 text-left">
-            Your next audit could take an hour, not&nbsp;a&nbsp;day
-          </h2>
+    <section className="section-band bg-background lg:py-[80px]">
+      <div className="mx-auto w-full max-w-[820px] text-center">
+        <span className="text-eyebrow">Get started</span>
+        <h2 className="text-h2">Your next audit could take an hour, not&nbsp;a&nbsp;day</h2>
 
-          <WaitlistForm id="final-cta" justifyClassName="justify-start" />
-        </Reveal>
+        <div className="mt-10 lg:mt-[60px]">
+          <WaitlistForm id="final-cta" />
+          <p className="mt-4 text-lg font-light text-text-dim">
+            Free while in beta. Chrome extension + web board
+          </p>
+        </div>
       </div>
     </section>
   )

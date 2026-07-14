@@ -2,20 +2,25 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="px-4 py-8 sm:px-6 sm:py-10">
-      <div className="mx-auto flex max-w-[1000px] flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
+    <footer className="bg-surface-2 px-5 py-10 sm:px-8">
+      <div className="section-container flex flex-col items-center justify-between gap-4 text-lg font-light text-text-dim sm:flex-row">
         <span>&copy; {new Date().getFullYear()} Screela</span>
-        <nav className="flex flex-wrap justify-center gap-4 sm:gap-6">
-          <a href="https://app.screela.com/s/board/a40fd611-61dc-4861-b307-ac8ff9f1b373" target="_blank" rel="noopener noreferrer" className="link-focus hover:text-foreground transition-colors">
+        <nav className="flex flex-wrap justify-center gap-4 sm:gap-[30px]">
+          <a
+            href="https://app.screela.com/s/board/a40fd611-61dc-4861-b307-ac8ff9f1b373"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-focus transition-colors hover:text-foreground"
+          >
             Live board
           </a>
-          <Link href="/privacy" className="link-focus hover:text-foreground transition-colors">
+          <Link href="/privacy" className="link-focus transition-colors hover:text-foreground">
             Privacy
           </Link>
-          <Link href="/terms" className="link-focus hover:text-foreground transition-colors">
+          <Link href="/terms" className="link-focus transition-colors hover:text-foreground">
             Terms
           </Link>
-          <a href="mailto:support@screela.com" className="link-focus hover:text-foreground transition-colors">
+          <a href="mailto:support@screela.com" className="link-focus transition-colors hover:text-foreground">
             support@screela.com
           </a>
         </nav>

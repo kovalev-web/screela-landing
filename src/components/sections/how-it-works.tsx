@@ -1,69 +1,127 @@
-import { Reveal } from "@/components/reveal"
+"use client"
+
+import * as React from "react"
+import {
+  ExtensionStep1,
+  ExtensionStep2,
+  ExtensionStep3,
+  StepStatusIcon,
+} from "@/components/extension-panels"
 
 const steps = [
   {
-    number: "1",
     title: "Start a flow",
     text: "Pick a board and hit Start Flow. Screela names the run after the domain automatically, no typing required. Optionally add a mobile track.",
-    image: "/images/how-it-works/extention1.png",
-    alt: "Screela Chrome extension popup with a board selected, the mobile track toggle, and the Start Flow button",
+    render: (on: boolean) => <ExtensionStep1 active={on} />,
   },
   {
-    number: "2",
     title: "Walk the product",
     text: "Press Alt+S on each step. Screela captures the full page, handling sticky headers and waiting out animations on its own.",
-    image: "/images/how-it-works/extention2.png",
-    alt: "Screela extension recording a flow in progress, showing the Alt+S capture shortcut and the previous step already saved",
+    render: (on: boolean) => <ExtensionStep2 filled={on} />,
   },
   {
-    number: "3",
     title: "Get a finished flow",
     text: "Finished flows land back in the list already named, timed, and tagged with step count and device, desktop, mobile, or both, so there's nothing left to sort or rename.",
-    image: "/images/how-it-works/extention3.png",
-    alt: "Screela extension flow list with completed captures auto-named by domain, showing step count, device, and duration",
+    render: (on: boolean) => <ExtensionStep3 dimmed={on} />,
   },
 ]
 
-export function HowItWorks() {
-  return (
-    <section id="how-it-works" className="section-y relative scroll-mt-10">
-      <div className="mx-auto max-w-[1000px]">
-        <Reveal>
-          <span className="text-eyebrow text-left">Workflow</span>
-          <h2 className="text-h2 text-left">
-            Three steps, one shortcut
-          </h2>
-        </Reveal>
+/* Desktop: the section pins while scrolling and the extension popup runs
+   through six phases — two per step: the step itself, then an "idle" scroll
+   that plays the in-panel animation (toggle flips on, slots fill with
+   screenshots, finished slots dim) before the next step. Mobile: plain
+   stacked steps frozen in their showcase state. */
+const PHASES = steps.length * 2
 
-        <div className="mt-8 sm:mt-14 flex flex-col gap-3">
-          {steps.map((step, i) => (
-            <Reveal key={step.number} delay={i * 100}>
-              <div
-                className={`glow-card group flex flex-col overflow-hidden rounded-2xl md:flex-row ${
-                  i % 2 === 1 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="flex flex-col justify-between bg-black/20 p-6 sm:p-10 md:w-1/2">
-                  <div>
-                    <h3 className="text-h3-lg">{step.title}</h3>
-                    <p className="text-body mt-3 text-muted-foreground">{step.text}</p>
-                  </div>
-                  <span className="mt-8 text-sm text-muted-foreground">Step {step.number}</span>
-                </div>
-                <div className="flex w-full items-center justify-center py-10 sm:py-14 md:w-1/2">
-                  <img
-                    src={step.image}
-                    alt={step.alt}
-                    width={362}
-                    height={390}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-auto w-[280px] sm:w-[362px]"
-                  />
+export function HowItWorks() {
+  const outerRef = React.useRef<HTMLDivElement>(null)
+  const [phase, setPhase] = React.useState(0)
+  const step = Math.floor(phase / 2)
+
+  React.useEffect(() => {
+    function onScroll() {
+      const el = outerRef.current
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      const total = rect.height - window.innerHeight
+      if (total <= 0) return
+      const progress = Math.min(0.999, Math.max(0, -rect.top / total))
+      setPhase(Math.floor(progress * PHASES))
+    }
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  return (
+    <section id="how-it-works" className="scroll-mt-10 bg-surface-2">
+      {/* mobile fallback: stacked steps */}
+      <div className="px-5 py-16 sm:px-8 lg:hidden">
+        <div className="section-container">
+          <span className="text-eyebrow">Workflow</span>
+          <h2 className="text-h2">Three steps, one shortcut</h2>
+          <div className="mt-10 flex flex-col gap-12">
+            {steps.map((s, i) => (
+              <div key={s.title}>
+                {/* showcase state: toggle on / slots filled; no dimming on the last step */}
+                {s.render(i < 2)}
+                <div className="mt-6">
+                  <div className="mb-2 text-sm font-light text-foreground/60">Step {i + 1}</div>
+                  <h3 className="text-step-title">{s.title}</h3>
+                  <p className="text-body mt-4 text-text-dim">{s.text}</p>
                 </div>
               </div>
-            </Reveal>
-          ))}
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* desktop scroll-driven carousel — 50vh of scroll per phase + the pinned screen */}
+      <div ref={outerRef} className="hidden lg:block" style={{ height: `${PHASES * 50 + 100}vh` }}>
+        <div className="sticky top-0 flex h-screen flex-col justify-center px-8">
+          <div className="section-container">
+            <span className="text-eyebrow">Workflow</span>
+            <h2 className="text-h2">Three steps, one shortcut</h2>
+
+            <div className="relative mt-16 flex items-start gap-[60px]">
+              {/* panel states, crossfading in one grid cell. The panel is
+                  vector (DOM), so on tall viewports it alone scales up —
+                  typography stays put; margins reserve the scaled footprint */}
+              <div className="grid w-[329px] shrink-0 origin-top-left [@media(min-height:950px)_and_(max-height:1149px)]:scale-[1.12] [@media(min-height:950px)_and_(max-height:1149px)]:mr-[39px] [@media(min-height:950px)_and_(max-height:1149px)]:mb-[60px] [@media(min-height:1150px)]:scale-[1.3] [@media(min-height:1150px)]:mr-[99px] [@media(min-height:1150px)]:mb-[151px]">
+                {steps.map((s, i) => (
+                  <div
+                    key={s.title}
+                    className={`col-start-1 row-start-1 transition-all duration-500 ${
+                      step === i ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"
+                    }`}
+                  >
+                    {s.render(phase >= i * 2 + 1)}
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid max-w-[555px] flex-1 pt-1">
+                {steps.map((s, i) => (
+                  <div
+                    key={s.title}
+                    className={`col-start-1 row-start-1 transition-all duration-500 ${
+                      step === i ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"
+                    }`}
+                  >
+                    <h3 className="text-step-title">{s.title}</h3>
+                    <p className="text-quote mt-5 text-foreground">{s.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="absolute right-0 top-0">
+                <StepStatusIcon step={step} />
+              </div>
+              <div className="absolute -bottom-14 right-0 text-base font-light text-foreground">
+                Step {step + 1}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

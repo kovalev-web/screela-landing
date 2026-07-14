@@ -1,10 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { useWaitlistSubmit } from "@/hooks/use-waitlist-submit"
-import { Check, Loader2 } from "lucide-react"
+import { Check, ChevronRight, Loader2 } from "lucide-react"
 
 export function WaitlistForm({
   id,
@@ -26,18 +24,18 @@ export function WaitlistForm({
   return (
     <div role="status" aria-live="polite">
       {status === "success" ? (
-        <div className={`mt-8 flex items-center ${justifyClassName} gap-2 text-success`}>
+        <div className={`flex h-[58px] items-center ${justifyClassName} gap-2 text-success`}>
           <Check className="size-5" aria-hidden="true" />
-          <span className="text-sm font-medium">You&rsquo;re on the list. We&rsquo;ll be in touch.</span>
+          <span className="text-base font-medium">You&rsquo;re on the list. We&rsquo;ll be in touch.</span>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className={`mt-8 flex ${justifyClassName}`}>
-          <div className="flex w-full max-w-md flex-col gap-2">
-            <div className="flex flex-row gap-3">
+        <form onSubmit={handleSubmit} className={`flex ${justifyClassName}`}>
+          <div className="flex w-full max-w-[472px] flex-col gap-2">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
               <label htmlFor={inputId} className="sr-only">
                 Email address
               </label>
-              <Input
+              <input
                 id={inputId}
                 type="email"
                 placeholder="Enter your email"
@@ -45,12 +43,11 @@ export function WaitlistForm({
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={status === "loading"}
-                className="h-10 min-w-0 flex-1 scroll-mt-24 border-transparent bg-white/5 text-base placeholder:text-muted-foreground disabled:opacity-50 md:text-base"
+                className="h-[58px] w-full min-w-0 shrink-0 rounded-[16px] border border-black bg-card px-5 text-base text-white placeholder:text-text-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 disabled:opacity-50 sm:w-auto sm:flex-1"
               />
-              <Button
+              <button
                 type="submit"
-                size="lg"
-                className="h-10 shrink-0"
+                className="btn-accent h-[54px] shrink-0 self-start max-sm:w-full sm:self-auto"
                 disabled={status === "loading"}
               >
                 {status === "loading" ? (
@@ -59,9 +56,12 @@ export function WaitlistForm({
                     <span className="sr-only">Submitting&hellip;</span>
                   </>
                 ) : (
-                  "Get early access"
+                  <>
+                    Get early access
+                    <ChevronRight className="size-4" strokeWidth={2.5} aria-hidden="true" />
+                  </>
                 )}
-              </Button>
+              </button>
             </div>
             {status === "error" && (
               <p className="text-sm text-destructive">Something went wrong. Please try again.</p>

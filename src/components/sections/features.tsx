@@ -1,81 +1,67 @@
-import { Camera, MonitorSmartphone, Link, LayoutGrid, Copy, Share2 } from "lucide-react"
-import { Reveal } from "@/components/reveal"
-
-const features = [
-  {
-    title: "Full-page capture, done right",
-    text: "Sticky headers, modals, lazy-loaded content: exactly where most other tools break.",
-    icon: Camera,
-    cell: "lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-2",
-    accent: true,
-  },
-  {
-    title: "Desktop + mobile in one flow",
-    text: "Two tracks, same steps, one board. See how they adapt the pattern.",
-    icon: MonitorSmartphone,
-    cell: "lg:col-start-3 lg:row-start-1",
-  },
-  {
-    title: "Context on every screenshot",
-    text: "Source URL, page title, capture time. Cite your findings, don't just show them.",
-    icon: Link,
-    cell: "lg:col-start-3 lg:row-start-2",
-  },
-  {
-    title: "One board per audit",
-    text: "Infinite canvas with zones per competitor. Compare patterns side by side.",
-    icon: LayoutGrid,
-    cell: "lg:col-start-1 lg:row-start-3",
-  },
-  {
-    title: "Copy to Figma",
-    text: "Take any flow straight into your workspace.",
-    icon: Copy,
-    cell: "lg:col-start-2 lg:row-start-3",
-  },
-  {
-    title: "Share a read-only link",
-    text: "Send a flow or the whole board to your team or client. No login needed.",
-    icon: Share2,
-    cell: "lg:col-start-3 lg:row-start-3",
-  },
-]
+function FeatureCard({
+  title,
+  text,
+  className = "",
+  children,
+}: {
+  title: string
+  text: string
+  className?: string
+  children?: React.ReactNode
+}) {
+  return (
+    <div className={`flex flex-col rounded-2xl bg-card p-6 sm:p-[30px] ${className}`}>
+      <h3 className="text-h3 max-w-[480px]">{title}</h3>
+      <p className="text-body mt-3 max-w-[480px] text-text-dim lg:mt-4">{text}</p>
+      {children}
+    </div>
+  )
+}
 
 export function Features() {
   return (
-    <section id="features" className="section-y relative overflow-x-hidden scroll-mt-10">
-      <div className="mx-auto max-w-[1000px] relative">
-        <Reveal>
-          <span className="text-eyebrow text-left">Features</span>
-          <h2 className="text-h2 text-left">
-            Built for competitive UX audits, not screenshot hoarding
-          </h2>
-        </Reveal>
+    <section id="features" className="section-band scroll-mt-10 bg-background">
+      <div className="section-container">
+        <span className="text-eyebrow">Features</span>
+        <h2 className="text-h2 max-w-[900px]">
+          Built for competitive UX audits, not screenshot hoarding
+        </h2>
 
-        <div className="mt-8 sm:mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3">
-          {features.map((feature, i) => {
-            const Icon = feature.icon
-            const isFlagship = feature.accent
-            return (
-              <Reveal key={feature.title} delay={i * 80} className={feature.cell}>
-                <div
-                  className={`glow-card group relative flex h-full flex-col rounded-2xl p-6 sm:p-8 overflow-hidden ${
-                    isFlagship ? "accent-card" : ""
-                  }`}
-                >
-                  <Icon
-                    className="size-8 mb-4 text-muted-foreground transition-colors duration-300 group-hover:text-foreground"
-                    strokeWidth={1.2}
-                    aria-hidden="true"
-                  />
-                  <h3 className={isFlagship ? "text-h3-lg" : "text-h3"}>
-                    {feature.title}
-                  </h3>
-                  <p className="text-body mt-3 text-muted-foreground">{feature.text}</p>
-                </div>
-              </Reveal>
-            )
-          })}
+        <div className="mt-10 grid gap-5 lg:mt-[50px] lg:grid-cols-3">
+          {/* flagship card with the lossless-copy illustration */}
+          <FeatureCard
+            title="Copy to Figma"
+            text="Take any flow straight into your workspace. Long full-page screenshots arrive at full resolution — not the blurry mush you get pasting long captures by hand."
+            className="overflow-hidden lg:col-span-2 lg:row-span-2"
+          >
+            {/* bleeds past the card bottom and gets cropped, as in the mockup */}
+            <img
+              src="/images/redesign/copy-figma.png"
+              alt="Two long screenshots side by side: blurry after a manual paste on the left, pixel-sharp after copying from Screela on the right"
+              className="-mb-[100px] mt-6 w-full lg:-mb-[164px] lg:mt-auto lg:pt-6"
+            />
+          </FeatureCard>
+
+          <FeatureCard
+            title="Desktop + mobile in one flow"
+            text="Two tracks, same steps, one board. See how they adapt the pattern."
+          />
+          <FeatureCard
+            title="Context on every screenshot"
+            text="Source URL, page title, capture time. Cite your findings, don't just show them."
+          />
+          <FeatureCard
+            title="Full-page capture, done right"
+            text="Sticky headers, modals, lazy-loaded content: exactly where most other tools break."
+          />
+          <FeatureCard
+            title="One board per audit"
+            text="Infinite canvas with zones per competitor. Compare patterns side by side."
+          />
+          <FeatureCard
+            title="Share a read-only link"
+            text="Send a flow or the whole board to your team or client. No login needed."
+          />
         </div>
       </div>
     </section>

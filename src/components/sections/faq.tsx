@@ -7,7 +7,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { Reveal } from "@/components/reveal"
 
 const faqs = [
   {
@@ -33,7 +32,7 @@ const faqs = [
 ]
 
 export function FAQ() {
-  const [openItems, setOpenItems] = React.useState<string[]>([])
+  const [openItems, setOpenItems] = React.useState<string[]>([faqs[0].q])
 
   function toggle(value: string) {
     setOpenItems((prev) =>
@@ -57,20 +56,18 @@ export function FAQ() {
   }
 
   return (
-    <section id="faq" className="section-y relative scroll-mt-10">
+    <section id="faq" className="section-band scroll-mt-10 bg-surface-2">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="mx-auto max-w-2xl text-center">
-        <Reveal>
-          <span className="text-eyebrow text-center">Need to know</span>
-          <h2 className="text-h2 text-center">
-            Questions
-          </h2>
-        </Reveal>
+      <div className="mx-auto w-full max-w-[820px]">
+        <div className="text-center">
+          <span className="text-eyebrow">Need to know</span>
+          <h2 className="text-h2">Questions</h2>
+        </div>
 
-        <div className="mt-8 sm:mt-14 flex flex-col gap-3 text-left">
+        <div className="mt-10 flex flex-col gap-5 text-left lg:mt-[60px]">
           {faqs.map((faq) => {
             const isOpen = openItems.includes(faq.q)
             return (
@@ -78,21 +75,21 @@ export function FAQ() {
                 key={faq.q}
                 open={isOpen}
                 onOpenChange={() => toggle(faq.q)}
-                className="glow-card rounded-2xl px-5"
+                className="rounded-2xl bg-card px-6 sm:px-[30px]"
               >
                 <CollapsibleTrigger asChild>
-                  <button className="link-focus flex w-full items-center justify-between py-5 text-base font-medium text-left cursor-pointer group">
-                    {faq.q}
+                  <button className="link-focus group flex w-full cursor-pointer items-center justify-between gap-5 py-5 text-left sm:py-[26px]">
+                    <span className="text-h3">{faq.q}</span>
                     <ChevronDown
                       aria-hidden="true"
-                      className={`size-4 shrink-0 text-muted-foreground transition-transform duration-300 ${
+                      className={`size-4 shrink-0 text-foreground transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="overflow-hidden data-open:animate-accordion-down data-closed:animate-accordion-up">
-                  <div className="text-body pb-5 text-muted-foreground">
+                  <div className="text-body pb-6 text-text-dim sm:pb-[30px]">
                     <p dangerouslySetInnerHTML={{ __html: faq.a }} />
                   </div>
                 </CollapsibleContent>
