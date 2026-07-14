@@ -21,7 +21,6 @@ export default function Home() {
         <PainPoint />
         <HowItWorks />
         <Result />
-        <Marquee />
         <Features />
         <WhoItsFor />
         <Comparison />

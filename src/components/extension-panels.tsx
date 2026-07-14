@@ -29,7 +29,7 @@ function PrimaryButton({ label, active = false }: { label: string; active?: bool
   return (
     <div
       className={`flex h-[38px] items-center justify-center gap-2 rounded-[10px] border text-sm font-medium transition-colors duration-500 ${
-        active ? "border-transparent bg-[#fafafa] text-[#18181b]" : "border-text-soft/10 text-text-soft"
+        active ? "border-transparent bg-[#fafafa] text-[#0a0a0a]" : "border-text-soft/10 text-text-soft"
       }`}
     >
       {label}
@@ -41,14 +41,15 @@ function ToggleRow({ on = true }: { on?: boolean }) {
   return (
     <div className="flex items-center justify-between text-xs text-text-soft">
       <span className="flex items-center gap-2">
+        {/* off: outlined pill, gray knob left; on: light pill, dark knob right */}
         <span
-          className={`flex h-[18px] w-8 items-center rounded-full p-px transition-colors duration-500 ${
-            on ? "bg-[#e5e5e5]" : "bg-[#383838]"
+          className={`flex h-[18px] w-8 items-center rounded-full border p-px transition-colors duration-500 ${
+            on ? "border-transparent bg-[#e5e5e5]" : "border-text-soft/10 bg-transparent"
           }`}
         >
           <span
-            className={`size-4 rounded-full bg-panel transition-transform duration-500 ${
-              on ? "translate-x-[14px]" : "translate-x-0"
+            className={`rounded-full transition-all duration-500 ${
+              on ? "size-4 translate-x-[14px] bg-panel" : "size-3.5 translate-x-px bg-text-soft"
             }`}
           />
         </span>
@@ -131,6 +132,7 @@ export function ExtensionStep1({ active = false }: { active?: boolean }) {
    staggered so they appear one after another */
 export function ExtensionStep2({ filled = false }: { filled?: boolean }) {
   const captures = [
+    { name: "slack.com", sub: "4 steps · desktop + mobile", time: "04:58", thumb: 1 },
     { name: "app.screela.com", sub: "1 steps · desktop + mobile", time: "03:34", thumb: 2 },
     { name: "claude.com", sub: "2 steps · desktop", time: "02:14", thumb: 5 },
     { name: "openai.com", sub: "4 steps · desktop + mobile", time: "02:05", thumb: 6 },
@@ -145,16 +147,18 @@ export function ExtensionStep2({ filled = false }: { filled?: boolean }) {
           Stop
         </span>
       </div>
-      <PrimaryButton label="Save Screenshot" />
+      <PrimaryButton label="Save Screenshot" active />
       <div className="text-center text-xs text-text-soft">or press Alt+S</div>
       <div className="flex flex-col gap-2">
-        <FlowRow name="slack.com" sub="4 steps · desktop + mobile" time="04:58" thumb={1} />
         {captures.map((c, i) => (
-          // captures hidden on mobile — only the slack.com row stays
-          <div key={i} className="grid max-lg:hidden">
+          // only the first slot stays on mobile
+          <div key={i} className={`grid ${i > 0 ? "max-lg:hidden" : ""}`}>
             <div
-              className={`col-start-1 row-start-1 transition-opacity duration-500 ${filled ? "opacity-0" : "opacity-70"}`}
-              style={{ transitionDelay: `${i * 200}ms` }}
+              className={`col-start-1 row-start-1 transition-opacity duration-500 ${filled ? "opacity-0" : ""}`}
+              style={{
+                transitionDelay: `${i * 200}ms`,
+                ...(filled ? {} : { opacity: [1, 0.7, 0.4, 0.3][i] }),
+              }}
             >
               <SkeletonRow />
             </div>
@@ -176,7 +180,7 @@ export function ExtensionStep3({ dimmed = false }: { dimmed?: boolean }) {
   return (
     <PanelShell>
       <PanelHeader />
-      <PrimaryButton label="Start Flow" />
+      <PrimaryButton label="Start Flow" active />
       <ToggleRow />
       <div className="flex flex-col gap-2">
         <FlowRow name="slack.com" sub="4 steps · desktop + mobile" time="04:58" thumb={1} />
@@ -201,23 +205,19 @@ export function ExtensionStep3({ dimmed = false }: { dimmed?: boolean }) {
   )
 }
 
-/* Logo + status badge shown top-right of the carousel: red = armed,
-   blue = recording, green check = finished flow */
+/* Logo card + status badge (bottom-left of the workflow text column):
+   red = armed, blue with a dot = recording, green check = finished flow */
 export function StepStatusIcon({ step }: { step: number }) {
   return (
-    <div aria-hidden="true" className="relative size-9">
-      <Logo className="size-9 text-text-soft" />
+    <div aria-hidden="true" className="relative size-[70px] rounded-2xl bg-card">
+      <Logo className="absolute left-[13px] top-[13px] size-[45px] text-text-soft" />
+      {/* 25x25 badge, r10, 3px outside stroke in the card color, flush to the corner */}
       <span
-        className={`absolute -bottom-0.5 -right-0.5 flex size-4 items-center justify-center rounded-[3px] transition-colors duration-300 ${
-          step === 0 ? "bg-[#ff6467]" : step === 1 ? "bg-[#6483ff]" : "bg-[#2aa232]"
+        className={`absolute bottom-0 right-0 box-content flex size-[25px] items-center justify-center rounded-[13px] border-[3px] border-card transition-colors duration-300 ${
+          step === 0 ? "bg-[#ff6467]" : step === 1 ? "bg-[#2f58ff]" : "bg-[#2aa232]"
         }`}
       >
-        {step === 1 && (
-          <span className="flex items-center gap-px">
-            <span className="h-px w-[7px] bg-white" />
-            <span className="h-px w-0.5 bg-white" />
-          </span>
-        )}
+        {step === 1 && <span className="size-[13px] rounded-full bg-[#d9d9d9]" />}
         {step === 2 && <Check className="size-3 text-white" strokeWidth={2.5} />}
       </span>
     </div>

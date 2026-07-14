@@ -96,8 +96,12 @@ export function HowItWorks() {
             >
               {/* fixed-height text block so the panels below line up across slides */}
               <div className="min-h-[180px] max-[359px]:min-h-[200px]">
-                <div className="mb-2 text-sm font-light text-foreground/60">Step {i + 1}</div>
-                <h3 className="text-step-title">{s.title}</h3>
+                <div className="flex items-center justify-between gap-4">
+                  <h3 className="text-step-title">{s.title}</h3>
+                  <span className="shrink-0 rounded-[10px] bg-[#191919] px-2.5 py-1 text-sm font-light text-foreground">
+                    Step {i + 1}
+                  </span>
+                </div>
                 <p className="text-body mt-4 text-text-dim">{s.text}</p>
               </div>
               {/* showcase state: toggle on / slots filled; no dimming on the last step */}
@@ -114,7 +118,7 @@ export function HowItWorks() {
             <span className="text-eyebrow">Workflow</span>
             <h2 className="text-h2">Three steps, one shortcut</h2>
 
-            <div className="relative mt-16 flex items-start gap-[60px]">
+            <div className="mt-16 flex items-stretch gap-[60px]">
               {/* panel states, crossfading in one grid cell. The panel is
                   vector (DOM), so on tall viewports it alone scales up —
                   typography stays put; margins reserve the scaled footprint */}
@@ -131,25 +135,27 @@ export function HowItWorks() {
                 ))}
               </div>
 
-              <div className="grid max-w-[555px] flex-1 pt-1">
-                {steps.map((s, i) => (
-                  <div
-                    key={s.title}
-                    className={`col-start-1 row-start-1 transition-all duration-500 ${
-                      step === i ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"
-                    }`}
-                  >
-                    <h3 className="text-step-title">{s.title}</h3>
-                    <p className="text-quote mt-5 text-foreground">{s.text}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="absolute right-0 top-0">
+              {/* text column: title + step chip on top, status card pinned to the bottom */}
+              <div className="flex max-w-[770px] flex-1 flex-col justify-between pt-1">
+                <div className="grid">
+                  {steps.map((s, i) => (
+                    <div
+                      key={s.title}
+                      className={`col-start-1 row-start-1 transition-all duration-500 ${
+                        step === i ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-5">
+                        <h3 className="text-step-title">{s.title}</h3>
+                        <span className="shrink-0 rounded-[10px] bg-[#191919] px-2.5 py-1 text-base font-light text-foreground">
+                          Step {i + 1}
+                        </span>
+                      </div>
+                      <p className="text-quote mt-5 max-w-[536px] text-foreground">{s.text}</p>
+                    </div>
+                  ))}
+                </div>
                 <StepStatusIcon step={step} />
-              </div>
-              <div className="absolute -bottom-14 right-0 text-base font-light text-foreground">
-                Step {step + 1}
               </div>
             </div>
           </div>

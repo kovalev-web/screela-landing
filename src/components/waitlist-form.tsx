@@ -31,7 +31,8 @@ export function WaitlistForm({
       ) : (
         <form onSubmit={handleSubmit} className={`flex ${justifyClassName}`}>
           <div className="flex w-full max-w-[472px] flex-col gap-2">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+            {/* stacks below 514px instead of the default sm breakpoint */}
+            <div className="flex flex-col gap-3 min-[514px]:flex-row min-[514px]:items-center min-[514px]:gap-5">
               <label htmlFor={inputId} className="sr-only">
                 Email address
               </label>
@@ -43,11 +44,11 @@ export function WaitlistForm({
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={status === "loading"}
-                className="h-[58px] w-full min-w-0 shrink-0 rounded-[16px] border border-black bg-card px-5 text-base text-white placeholder:text-text-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 disabled:opacity-50 sm:w-auto sm:flex-1"
+                className="h-[58px] w-full min-w-0 shrink-0 rounded-[16px] border border-black bg-card px-5 text-base text-white placeholder:text-text-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 disabled:opacity-50 min-[514px]:w-auto min-[514px]:flex-1"
               />
               <button
                 type="submit"
-                className="btn-accent h-[54px] shrink-0 self-start max-sm:w-full sm:self-auto"
+                className="btn-accent h-[54px] shrink-0 self-start max-[513px]:w-full min-[514px]:self-auto"
                 disabled={status === "loading"}
               >
                 {status === "loading" ? (
