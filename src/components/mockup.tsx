@@ -1,4 +1,4 @@
-import { Search, Plus, EllipsisVertical, ChevronRight } from "lucide-react"
+import { Search, Plus, EllipsisVertical } from "lucide-react"
 
 /* Building blocks for the in-code app mockups (hero + Who it's for).
    Built as DOM layers on purpose — they'll get micro-animations later.
@@ -110,7 +110,6 @@ export function CreateBoardButton({
     >
       <Plus className="size-4" strokeWidth={2} aria-hidden="true" />
       <span className="whitespace-nowrap">Create Board</span>
-      <ChevronRight className="size-4" strokeWidth={2} aria-hidden="true" />
     </div>
   )
 }

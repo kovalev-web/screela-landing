@@ -3,7 +3,7 @@
    container background so it never participates in layout. */
 export function PainPoint() {
   return (
-    <section className="overflow-x-clip bg-background px-5 py-10 sm:px-8 lg:py-20">
+    <section className="overflow-x-clip bg-surface-2 px-5 py-10 sm:px-8 lg:py-20">
       <div className="section-container relative lg:h-[340px] lg:bg-[url(/images/redesign/logo-watermark.svg)] lg:bg-[length:136px_136px] lg:bg-[position:0px_203px] lg:bg-no-repeat">
         <h2 className="text-h2 lg:absolute lg:left-0 lg:top-0">You know the drill:</h2>
 
@@ -15,13 +15,21 @@ export function PainPoint() {
 
         <p className="text-quote mt-8 max-w-[555px] lg:absolute lg:right-[283px] lg:top-[136px] lg:mt-0 lg:w-[555px]">
           GoFullPage, copy, drag into Figma, rename, paste the URL somewhere you&apos;ll never find
-          again. Repeat forty times
+          again. <span className="whitespace-nowrap">Repeat forty times</span>
         </p>
 
-        <div
+        {/* dashed connector with a filled arrowhead on the left end */}
+        <svg
           aria-hidden="true"
-          className="hidden lg:absolute lg:right-[14px] lg:top-[229px] lg:block lg:h-0.5 lg:w-[605px] lg:bg-foreground/30"
-        />
+          className="hidden text-foreground/20 lg:absolute lg:right-[14px] lg:top-[224px] lg:block"
+          width="605"
+          height="12"
+          viewBox="0 0 605 12"
+          fill="none"
+        >
+          <path d="M14 6H605" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
+          <path d="M12 0L0 6L12 12Z" fill="currentColor" />
+        </svg>
 
         <p className="text-quote mt-6 max-w-[417px] lg:absolute lg:right-0 lg:top-[268px] lg:mt-0 lg:text-right">
           Half a day gone before the actual analysis even starts

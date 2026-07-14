@@ -58,7 +58,9 @@ export function Hero() {
           <HeroBoardMockup />
         </div>
 
-        <div className="order-1 lg:order-2 lg:max-w-[698px]">
+        {/* h = visible mockup area (878 section − 117 top pad); centers the copy
+            against what the user actually sees of the cut-off mockup */}
+        <div className="order-1 lg:order-2 lg:flex lg:h-[761px] lg:max-w-[698px] lg:flex-col lg:justify-center lg:self-start">
           <h1 className="text-display">
             Competitor <span className="text-[#6a6a6a]">UX research</span> without the screenshot chaos
           </h1>

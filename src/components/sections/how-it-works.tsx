@@ -75,7 +75,7 @@ export function HowItWorks() {
   }, [])
 
   return (
-    <section id="how-it-works" className="scroll-mt-10 bg-surface-2">
+    <section id="how-it-works" className="scroll-mt-10 bg-background">
       {/* mobile fallback: horizontal snap carousel — one panel of height instead of three */}
       <div className="py-10 lg:hidden">
         <div className="section-container px-5 sm:px-8">
@@ -151,7 +151,7 @@ export function HowItWorks() {
                           Step {i + 1}
                         </span>
                       </div>
-                      <p className="text-quote mt-5 max-w-[536px] text-foreground">{s.text}</p>
+                      <p className="text-body mt-5 max-w-[536px] text-text-dim">{s.text}</p>
                     </div>
                   ))}
                 </div>

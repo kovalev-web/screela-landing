@@ -1,6 +1,6 @@
 import { Header } from "@/components/sections/header"
 import { Hero } from "@/components/sections/hero"
-import { Marquee } from "@/components/sections/marquee"
+// import { Marquee } from "@/components/sections/marquee" — hidden for now
 import { PainPoint } from "@/components/sections/pain-point"
 import { HowItWorks } from "@/components/sections/how-it-works"
 import { Result } from "@/components/sections/result"
@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Marquee />
+        {/* <Marquee /> — hidden for now */}
         <PainPoint />
         <HowItWorks />
         <Result />
