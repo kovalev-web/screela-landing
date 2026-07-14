@@ -20,10 +20,10 @@ export function PainPoint() {
 
         <div
           aria-hidden="true"
-          className="my-6 h-px w-full bg-foreground/30 lg:absolute lg:right-[14px] lg:top-[229px] lg:my-0 lg:h-0.5 lg:w-[605px]"
+          className="hidden lg:absolute lg:right-[14px] lg:top-[229px] lg:block lg:h-0.5 lg:w-[605px] lg:bg-foreground/30"
         />
 
-        <p className="text-quote max-w-[417px] lg:absolute lg:right-0 lg:top-[268px] lg:text-right">
+        <p className="text-quote mt-6 max-w-[417px] lg:absolute lg:right-0 lg:top-[268px] lg:mt-0 lg:text-right">
           Half a day gone before the actual analysis even starts
         </p>
       </div>

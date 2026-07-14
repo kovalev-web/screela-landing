@@ -27,7 +27,7 @@ export function Features() {
           Built for competitive UX audits, not screenshot hoarding
         </h2>
 
-        <div className="mt-8 grid gap-5 lg:mt-[50px] lg:grid-cols-3">
+        <div className="mt-8 grid gap-3 lg:mt-[50px] lg:grid-cols-3 lg:gap-5">
           {/* flagship card with the lossless-copy illustration */}
           <FeatureCard
             title="Copy to Figma"

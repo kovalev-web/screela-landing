@@ -115,12 +115,13 @@ export function ExtensionStep1({ active = false }: { active?: boolean }) {
       <PanelHeader />
       <PrimaryButton label="Start Flow" active={active} />
       <ToggleRow on={active} />
+      {/* only 2 slots on mobile to keep the carousel short */}
       <div className="flex flex-col gap-2">
         <SkeletonRow />
         <SkeletonRow className="opacity-70" />
-        <SkeletonRow className="opacity-40" />
-        <SkeletonRow className="opacity-40" />
-        <SkeletonRow className="opacity-40" />
+        <SkeletonRow className="opacity-40 max-lg:hidden" />
+        <SkeletonRow className="opacity-40 max-lg:hidden" />
+        <SkeletonRow className="opacity-40 max-lg:hidden" />
       </div>
     </PanelShell>
   )
@@ -149,7 +150,8 @@ export function ExtensionStep2({ filled = false }: { filled?: boolean }) {
       <div className="flex flex-col gap-2">
         <FlowRow name="slack.com" sub="4 steps · desktop + mobile" time="04:58" thumb={1} />
         {captures.map((c, i) => (
-          <div key={i} className="grid">
+          // captures hidden on mobile — only the slack.com row stays
+          <div key={i} className="grid max-lg:hidden">
             <div
               className={`col-start-1 row-start-1 transition-opacity duration-500 ${filled ? "opacity-0" : "opacity-70"}`}
               style={{ transitionDelay: `${i * 200}ms` }}
@@ -184,7 +186,13 @@ export function ExtensionStep3({ dimmed = false }: { dimmed?: boolean }) {
           { name: "openai.com", sub: "4 steps · desktop + mobile", time: "02:05", thumb: 6 },
           { name: "v0.app", sub: "2 steps · desktop", time: "01:27", thumb: 7 },
         ].map((f, i) => (
-          <div key={i} className={`transition-opacity duration-500 ${dimmed ? "opacity-25" : "opacity-100"}`}>
+          // only 2 slots on mobile to keep the carousel short
+          <div
+            key={i}
+            className={`transition-opacity duration-500 ${dimmed ? "opacity-25" : "opacity-100"} ${
+              i > 0 ? "max-lg:hidden" : ""
+            }`}
+          >
             <FlowRow name={f.name} sub={f.sub} time={f.time} thumb={f.thumb} />
           </div>
         ))}

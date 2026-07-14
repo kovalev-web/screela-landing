@@ -38,6 +38,27 @@ export function HowItWorks() {
   const [phase, setPhase] = React.useState(0)
   const step = Math.floor(phase / 2)
 
+  // mobile carousel: track which slide is snapped so the peeking ones dim
+  const trackRef = React.useRef<HTMLDivElement>(null)
+  const [activeSlide, setActiveSlide] = React.useState(0)
+
+  function onTrackScroll() {
+    const el = trackRef.current
+    if (!el) return
+    const center = el.scrollLeft + el.clientWidth / 2
+    let best = 0
+    let bestDist = Infinity
+    Array.from(el.children).forEach((child, i) => {
+      const c = child as HTMLElement
+      const dist = Math.abs(c.offsetLeft + c.offsetWidth / 2 - center)
+      if (dist < bestDist) {
+        bestDist = dist
+        best = i
+      }
+    })
+    setActiveSlide(best)
+  }
+
   React.useEffect(() => {
     function onScroll() {
       const el = outerRef.current
@@ -61,16 +82,26 @@ export function HowItWorks() {
           <span className="text-eyebrow">Workflow</span>
           <h2 className="text-h2">Three steps, one shortcut</h2>
         </div>
-        <div className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={trackRef}
+          onScroll={onTrackScroll}
+          className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden"
+        >
           {steps.map((s, i) => (
-            <div key={s.title} className="w-[82vw] max-w-[340px] shrink-0 snap-center">
-              {/* showcase state: toggle on / slots filled; no dimming on the last step */}
-              {s.render(i < 2)}
-              <div className="mt-6">
+            <div
+              key={s.title}
+              className={`w-[82vw] max-w-[340px] shrink-0 snap-center transition-opacity duration-300 ${
+                i === activeSlide ? "opacity-100" : "opacity-30"
+              }`}
+            >
+              {/* fixed-height text block so the panels below line up across slides */}
+              <div className="min-h-[180px] max-[359px]:min-h-[200px]">
                 <div className="mb-2 text-sm font-light text-foreground/60">Step {i + 1}</div>
                 <h3 className="text-step-title">{s.title}</h3>
                 <p className="text-body mt-4 text-text-dim">{s.text}</p>
               </div>
+              {/* showcase state: toggle on / slots filled; no dimming on the last step */}
+              <div className="pt-6">{s.render(i < 2)}</div>
             </div>
           ))}
         </div>
