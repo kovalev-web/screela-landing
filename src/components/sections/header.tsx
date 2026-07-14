@@ -30,7 +30,7 @@ export function Header() {
           className="link-focus flex items-center gap-1.5 text-base font-semibold tracking-[-0.02em] text-text-soft transition-colors hover:text-white"
         >
           <Logo className="size-5 shrink-0" />
-          <span className="max-[430px]:hidden">Screela</span>
+          <span className="max-sm:hidden">Screela</span>
         </Link>
         <div className="flex items-center gap-3 sm:gap-6">
           <nav className="flex items-center gap-3 text-xs font-semibold tracking-[-0.02em] text-text-soft sm:gap-[26px] sm:text-base">

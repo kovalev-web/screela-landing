@@ -116,7 +116,7 @@ body {
 
 /* Full-bleed section band + 1160px content column */
 .section-band {
-  @apply px-5 py-16 sm:px-8 lg:py-20;
+  @apply px-5 py-10 sm:px-8 lg:py-20;
 }
 
 .section-container {

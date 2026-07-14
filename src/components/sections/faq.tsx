@@ -67,7 +67,7 @@ export function FAQ() {
           <h2 className="text-h2">Questions</h2>
         </div>
 
-        <div className="mt-10 flex flex-col gap-5 text-left lg:mt-[60px]">
+        <div className="mt-8 flex flex-col gap-5 text-left lg:mt-[60px]">
           {faqs.map((faq) => {
             const isOpen = openItems.includes(faq.q)
             return (

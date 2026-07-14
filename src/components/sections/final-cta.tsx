@@ -7,7 +7,7 @@ export function FinalCTA() {
         <span className="text-eyebrow">Get started</span>
         <h2 className="text-h2">Your next audit could take an hour, not&nbsp;a&nbsp;day</h2>
 
-        <div className="mt-10 lg:mt-[60px]">
+        <div className="mt-8 lg:mt-[60px]">
           <WaitlistForm id="final-cta" />
           <p className="mt-4 text-lg font-light text-text-dim">
             Free while in beta. Chrome extension + web board

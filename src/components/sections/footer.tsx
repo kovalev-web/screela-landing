@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-surface-2 px-5 py-10 sm:px-8">
+    <footer className="bg-surface-2 px-5 py-8 sm:px-8 lg:py-10">
       <div className="section-container flex flex-col items-center justify-between gap-4 text-lg font-light text-text-dim sm:flex-row">
         <span>&copy; {new Date().getFullYear()} Screela</span>
         <nav className="flex flex-wrap justify-center gap-4 sm:gap-[30px]">

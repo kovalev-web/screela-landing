@@ -52,8 +52,8 @@ function HeroBoardMockup() {
 
 export function Hero() {
   return (
-    <section className="bg-dots relative overflow-hidden bg-background px-5 pt-32 sm:px-8 lg:h-[878px] lg:pt-[117px]">
-      <div className="section-container grid gap-16 lg:grid-cols-[351px_1fr] lg:gap-[110px]">
+    <section className="bg-dots relative overflow-hidden bg-background px-5 pt-24 sm:px-8 lg:h-[878px] lg:pt-[117px]">
+      <div className="section-container grid gap-10 lg:grid-cols-[351px_1fr] lg:gap-[110px]">
         <div className="order-2 justify-self-center max-lg:h-[480px] max-lg:overflow-hidden max-lg:[mask-image:linear-gradient(to_bottom,black_65%,transparent)] lg:order-1">
           <HeroBoardMockup />
         </div>
@@ -62,13 +62,13 @@ export function Hero() {
           <h1 className="text-display">
             Competitor <span className="text-[#6a6a6a]">UX research</span> without the screenshot chaos
           </h1>
-          <p className="text-body-lede mt-8 text-foreground lg:mt-10">
+          <p className="text-body-lede mt-6 text-foreground lg:mt-10">
             Screela records entire user flows, like a competitor&apos;s onboarding or checkout, as
             full-page screenshots with one shortcut. Steps land on an infinite board in order,
             desktop and mobile side by side.
           </p>
 
-          <div className="mt-12 lg:mt-[79px]">
+          <div className="mt-8 lg:mt-[79px]">
             <WaitlistForm id="hero" justifyClassName="justify-start" />
             <p className="mt-4 text-lg font-light text-text-dim">
               Free while in beta. Chrome extension + web board

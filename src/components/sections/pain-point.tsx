@@ -3,7 +3,7 @@
    container background so it never participates in layout. */
 export function PainPoint() {
   return (
-    <section className="overflow-x-clip bg-background px-5 py-16 sm:px-8 lg:py-20">
+    <section className="overflow-x-clip bg-background px-5 py-10 sm:px-8 lg:py-20">
       <div className="section-container relative lg:h-[340px] lg:bg-[url(/images/redesign/logo-watermark.svg)] lg:bg-[length:136px_136px] lg:bg-[position:0px_203px] lg:bg-no-repeat">
         <h2 className="text-h2 lg:absolute lg:left-0 lg:top-0">You know the drill:</h2>
 

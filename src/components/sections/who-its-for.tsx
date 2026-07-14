@@ -20,7 +20,7 @@ export function WhoItsFor() {
         <span className="text-eyebrow">Who it&rsquo;s for</span>
         <h2 className="text-h2 max-w-[900px]">Made for people who study products for a living</h2>
 
-        <div className="mt-10 flex flex-col gap-8 lg:mt-[60px] lg:flex-row lg:items-center lg:gap-10">
+        <div className="mt-8 flex flex-col gap-6 lg:mt-[60px] lg:flex-row lg:items-center lg:gap-10">
           <div className="flex shrink-0 flex-col gap-4 sm:max-lg:grid sm:max-lg:grid-cols-3 lg:w-[321px] lg:gap-5">
             {personas.map((p) => (
               <div key={p.title} className="rounded-2xl bg-card p-6 sm:p-[30px]">
