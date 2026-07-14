@@ -36,7 +36,7 @@ export function Features() {
           >
             {/* bleeds past the card bottom and gets cropped, as in the mockup */}
             <img
-              src="/images/redesign/copy-figma.png"
+              src="/images/redesign/copy-figma-v2.png"
               alt="Two long screenshots side by side: blurry after a manual paste on the left, pixel-sharp after copying from Screela on the right"
               className="-mb-[80px] mt-6 w-full max-w-[520px] self-start lg:-mb-[120px] lg:mt-auto lg:pt-6"
             />

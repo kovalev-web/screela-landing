@@ -8,4 +8,4 @@ missing files just show a dark placeholder.
 | `board-thumb-1.png` … `board-thumb-12.png` | board-card thumbnails (hero, 4 cards × 3 thumbs, numbered left→right top card first) | ~94x94 (square, top-crop) |
 | `drill-person.png` | "You know the drill:" section, person photo (transparent bg) | 179x179 |
 | `result-board.png` | big board screenshot after the workflow section | 1159x718 |
-| `copy-figma.png` | Features → Copy to Figma illustration (blurry left vs sharp right) | 707x437 |
+| `copy-figma-v2.png` | Features → Copy to Figma illustration (blurry left vs sharp right; renamed to bust caches) | 707x437 |

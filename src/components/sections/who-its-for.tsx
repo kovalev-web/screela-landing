@@ -36,7 +36,7 @@ export function WhoItsFor() {
             height={537}
             loading="lazy"
             decoding="async"
-            className="w-full max-w-[799px] rounded-[20px]"
+            className="w-full min-w-0 max-w-[799px] rounded-[20px]"
           />
         </div>
       </div>
