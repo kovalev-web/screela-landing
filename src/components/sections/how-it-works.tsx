@@ -55,24 +55,24 @@ export function HowItWorks() {
 
   return (
     <section id="how-it-works" className="scroll-mt-10 bg-surface-2">
-      {/* mobile fallback: stacked steps */}
-      <div className="px-5 py-16 sm:px-8 lg:hidden">
-        <div className="section-container">
+      {/* mobile fallback: horizontal snap carousel — one panel of height instead of three */}
+      <div className="py-16 lg:hidden">
+        <div className="section-container px-5 sm:px-8">
           <span className="text-eyebrow">Workflow</span>
           <h2 className="text-h2">Three steps, one shortcut</h2>
-          <div className="mt-10 flex flex-col gap-12">
-            {steps.map((s, i) => (
-              <div key={s.title}>
-                {/* showcase state: toggle on / slots filled; no dimming on the last step */}
-                {s.render(i < 2)}
-                <div className="mt-6">
-                  <div className="mb-2 text-sm font-light text-foreground/60">Step {i + 1}</div>
-                  <h3 className="text-step-title">{s.title}</h3>
-                  <p className="text-body mt-4 text-text-dim">{s.text}</p>
-                </div>
+        </div>
+        <div className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden">
+          {steps.map((s, i) => (
+            <div key={s.title} className="w-[82vw] max-w-[340px] shrink-0 snap-center">
+              {/* showcase state: toggle on / slots filled; no dimming on the last step */}
+              {s.render(i < 2)}
+              <div className="mt-6">
+                <div className="mb-2 text-sm font-light text-foreground/60">Step {i + 1}</div>
+                <h3 className="text-step-title">{s.title}</h3>
+                <p className="text-body mt-4 text-text-dim">{s.text}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
